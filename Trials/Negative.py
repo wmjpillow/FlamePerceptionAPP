@@ -15,9 +15,13 @@ show_image = [gs_neg]
 
 n_showimg = len(show_image)
 
+print(n_showimg)
+cv2.imshow(show_imagename[0],show_image[0])
+# cv2.imwrite(show_imagename[0],show_image[0])
+
 #Image Showing Sequencing
-for k in range (0,n_showimg):
-    cv2.imshow(show_imagename[k],show_image[k])
+# for k in range (0,n_showimg):
+#     cv2.imshow(show_imagename[k],show_image[k])
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()
