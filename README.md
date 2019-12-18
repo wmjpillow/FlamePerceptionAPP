@@ -1,4 +1,4 @@
-# FlameDetectionAPP using TensorFlow Object Detection API, ML Engine, and Swift
+# FlameDetectionAPP For Fire Protection Department in WPI
 
 
 Reference:
