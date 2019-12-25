@@ -8,6 +8,7 @@ from pathlib import Path
 # https://stackoverflow.com/questions/3345336/save-results-to-csv-file-with-python
 
 sys.stdout = open("data.txt", "w")
+print(f" frame, Area, Percentage  ")
 
 def processLog(filename):
     # print(f"Processing log: {filename}")
@@ -35,7 +36,7 @@ def processLog(filename):
           SumProportion=SumProportion+proportion
     # print(f"   sumcount: {SumCount}")
     # print(f"   SumProportion: {SumProportion}")
-    print(f" {p.stem} {SumCount} {SumProportion}  ")
+    print(f" {p.stem}, {SumCount}, {SumProportion}  ")
 
 # Iterate over all images called "log*png" in current directory
 for filename in glob.glob("/Users/wangmeijie/ALLImportantProjects/Flame+MaskRCNN/data/JPEGImages_NG/*.jpg"):
