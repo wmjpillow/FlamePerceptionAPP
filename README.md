@@ -10,4 +10,6 @@ The web Application is developed with flask framework and the mobile application
 Reference:
 https://medium.com/@vijendra1125/custom-mask-rcnn-using-tensorflow-object-detection-api-101149ce0765
 
+Flask Template:  https://github.com/realpython/flask-boilerplate
+
 
