@@ -8,7 +8,7 @@ from pathlib import Path
 # https://stackoverflow.com/questions/3345336/save-results-to-csv-file-with-python
 
 sys.stdout = open("data.txt", "w")
-print(f" frame, Area, Percentage  ")
+# print(f" frame, Area, Percentage  ")
 
 def processLog(filename):
     # print(f"Processing log: {filename}")
