@@ -5,17 +5,17 @@
 <div class="page-header">
   <h1>Visualization</h1>
 </div>
-<div id="my_dataviz"></div>
+<div id="Area"></div>
 
 <script src="https://d3js.org/d3.v4.js"></script>
 <script>
   // set the dimensions and margins of the graph
   var margin = {top: 10, right: 30, bottom: 30, left: 60},
-      width = 760 - margin.left - margin.right,
+      width = 1260 - margin.left - margin.right,
       height = 700 - margin.top - margin.bottom;
   
   // append the svg object to the body of the page
-  var svg = d3.select("#my_dataviz")
+  var svg = d3.select("#Area")
     .append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
@@ -26,9 +26,11 @@
   //Read the data
   d3.csv("/static/data/sortedData.csv",function(data) {  
       console.log(data);
+      console.log(d3.extent(data, function(d) { return +d.a; }));
+      console.log(d3.extent(data, function(d) { return +d.b; }));
       // Add X axis --> it is a date format
       var x = d3.scaleTime()
-        .domain(d3.extent(data, function(d) { return d.a; }))
+        .domain(d3.extent(data, function(d) { return +d.a; }))
         .range([ 0, width ]);
       svg.append("g")
         .attr("transform", "translate(0," + height + ")")
