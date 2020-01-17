@@ -9,18 +9,13 @@ import matplotlib.image as mpimg
 # get_ipython().magic(u'matplotlib inline')
 # REFERENCE: https://github.com/benjamincastillo2020/FireDetectionCode
 
-# In[2]:
-
-# cap1 = cv2.VideoCapture('/Users/wangmeijie/ALLImportantProjects/Flame+MaskRCNN/4cm.mp4')
-
-cap1 = cv2.VideoCapture('/Users/wangmeijie/ALLImportantProjects/Flame+MaskRCNN/4cm.mp4')
+cap1 = cv2.VideoCapture('/Users/wangmeijie/ALLImportantProjects/FlameDetectionAPP/WebApplication/static/Videos/4cm_test.mp4')
 
 fgbg = cv2.createBackgroundSubtractorMOG2()
 # serport = serial.Serial("COM1", 115200)
 
 while (1):
-    # ret, frame = cap1.read()  # reading the image
-    ret, frame = cv2.imread('/Users/wangmeijie/ALLImportantProjects/Flame+MaskRCNN/data/JPEGImages_NG/frame333.jpg')
+    # ret, frame = cv2.imread('/Users/wangmeijie/ALLImportantProjects/Flame+MaskRCNN/data/JPEGImages_NG/frame333.jpg')
 
     ret, frame = cap1.read()  # reading the image
     sub_image = fgbg.apply(frame)  # background subtraction

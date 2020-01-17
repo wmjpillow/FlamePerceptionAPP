@@ -1,0 +1,2 @@
+from moviepy.video.io.ffmpeg_tools import ffmpeg_extract_subclip
+ffmpeg_extract_subclip("/Users/wangmeijie/ALLImportantProjects/FlameDetectionAPP/Videos/4cm.mp4", 5, 100, targetname="/Users/wangmeijie/ALLImportantProjects/FlameDetectionAPP/WebApplication/static/Videos/4cm_test.mp4")
