@@ -26,11 +26,11 @@
   //Read the data
   d3.csv("/static/data/sortedData.csv",function(data) {  
       console.log(data);
-      console.log(d3.extent(data, function(d) { return +d.a; }));
-      console.log(d3.extent(data, function(d) { return +d.b; }));
+      console.log(d3.extent(data, function(d) { return +d.I; }));
+      console.log(d3.extent(data, function(d) { return +d.S; }));
       // Add X axis --> it is a date format
       var x = d3.scaleTime()
-        .domain(d3.extent(data, function(d) { return +d.a; }))
+        .domain(d3.extent(data, function(d) { return +d.I; }))
         .range([ 0, width ]);
       svg.append("g")
         .attr("transform", "translate(0," + height + ")")
@@ -38,7 +38,7 @@
   
       // Add Y axis
       var y = d3.scaleLinear()
-        .domain(d3.extent(data, function(d) { return +d.b; }))
+        .domain(d3.extent(data, function(d) { return +d.S; }))
         .range([ height, 0 ]);
       svg.append("g")
         .call(d3.axisLeft(y));
@@ -50,8 +50,8 @@
         .attr("stroke", "steelblue")
         .attr("stroke-width", 1.5)
         .attr("d", d3.line()
-          .x(function(d) { return x(d.a) })
-          .y(function(d) { return y(d.b) })
+          .x(function(d) { return x(d.I) })
+          .y(function(d) { return y(d.S) })
           )
   })
   </script>
