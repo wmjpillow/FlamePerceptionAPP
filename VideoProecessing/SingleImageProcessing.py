@@ -1,6 +1,6 @@
 import cv2
 
-img = cv2.imread('/Users/wangmeijie/ALLImportantProjects/FlameDetectionAPP/MaskRCNN/JPEGImages/frame1020.jpg')
+img = cv2.imread('/Users/wangmeijie/ALLImportantProjects/FlameDetectionAPP/WebApplication/static/img/Area/frame2610.jpg')
 gs = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
 
 

@@ -39,7 +39,7 @@ def processLog(filename):
     print(f" {p.stem}, {SumCount}, {SumProportion}  ")
 
 # Iterate over all images called "log*png" in current directory
-for filename in glob.glob("/Users/wangmeijie/ALLImportantProjects/Flame+MaskRCNN/data/JPEGImages_NG/*.jpg"):
+for filename in glob.glob("/Users/wangmeijie/ALLImportantProjects/FlameDetectionAPP/WebApplication/static/img/Area/*.jpg"):
     processLog(filename)
 
 sys.stdout.close()

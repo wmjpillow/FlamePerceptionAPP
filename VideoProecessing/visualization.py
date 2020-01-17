@@ -3,7 +3,7 @@ import numpy as np
 
 #https://stackoverflow.com/questions/34158103/sort-a-file-by-first-or-second-or-else-column-in-python
 
-df=pd.read_csv('data.csv',  names=['a','b','c'])
+df=pd.read_csv('data.csv',  names=['I','S','P'])
 # df=df.sort_values(["frame"], axis=0)
 # df.to_csv (r'/Users/wangmeijie/ALLImportantProjects/Flame+MaskRCNN/data/sortedData.csv', index = None, header=True)
 
