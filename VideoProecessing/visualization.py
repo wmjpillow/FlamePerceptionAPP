@@ -7,11 +7,11 @@ df=pd.read_csv('data.csv',  names=['I','S','P'])
 # df=df.sort_values(["frame"], axis=0)
 # df.to_csv (r'/Users/wangmeijie/ALLImportantProjects/Flame+MaskRCNN/data/sortedData.csv', index = None, header=True)
 
-df['a'] = df['a'].str.replace(r'\D', '')
+df['I'] = df['I'].str.replace(r'\D', '')
 
-df.a = pd.to_numeric(df.a, errors='coerce')
-df = df.sort_values('a', ascending=True)
+df.I = pd.to_numeric(df.I, errors='coerce')
+df = df.sort_values('I', ascending=True)
 
 print (df)
 
-df.to_csv('/Users/wangmeijie/ALLImportantProjects/Flame+MaskRCNN/data/sortedData.csv', encoding='utf-8', index=False)
+df.to_csv('/Users/wangmeijie/ALLImportantProjects/FlameDetectionAPP/WebApplication/static/data/sortedData.csv', encoding='utf-8', index=False)
