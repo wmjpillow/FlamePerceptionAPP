@@ -11,37 +11,18 @@ import matplotlib.image as mpimg
 
 # In[2]:
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 # cap1 = cv2.VideoCapture('/Users/wangmeijie/ALLImportantProjects/Flame+MaskRCNN/4cm.mp4')
-=======
+
 cap1 = cv2.VideoCapture('/Users/wangmeijie/ALLImportantProjects/Flame+MaskRCNN/4cm.mp4')
->>>>>>> 5c0a3c240f2a071838a08cb98077134fec612517
-=======
-cap1 = cv2.VideoCapture('/Users/wangmeijie/ALLImportantProjects/Flame+MaskRCNN/4cm.mp4')
->>>>>>> 5c0a3c240f2a071838a08cb98077134fec612517
-=======
-cap1 = cv2.VideoCapture('/Users/wangmeijie/ALLImportantProjects/Flame+MaskRCNN/4cm.mp4')
->>>>>>> 5c0a3c240f2a071838a08cb98077134fec612517
+
 fgbg = cv2.createBackgroundSubtractorMOG2()
 # serport = serial.Serial("COM1", 115200)
 
 while (1):
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     # ret, frame = cap1.read()  # reading the image
     ret, frame = cv2.imread('/Users/wangmeijie/ALLImportantProjects/Flame+MaskRCNN/data/JPEGImages_NG/frame333.jpg')
-=======
+
     ret, frame = cap1.read()  # reading the image
->>>>>>> 5c0a3c240f2a071838a08cb98077134fec612517
-=======
-    ret, frame = cap1.read()  # reading the image
->>>>>>> 5c0a3c240f2a071838a08cb98077134fec612517
-=======
-    ret, frame = cap1.read()  # reading the image
->>>>>>> 5c0a3c240f2a071838a08cb98077134fec612517
     sub_image = fgbg.apply(frame)  # background subtraction
 
     ret, thresh = cv2.threshold(sub_image, 127, 255, 0)  # thresholding
