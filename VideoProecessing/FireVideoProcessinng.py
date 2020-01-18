@@ -18,28 +18,23 @@ def processLog(filename):
     p=Path(f"{filename}")
     # print(f"{p.stem}")
     # Open this image and make a Numpy version for easy processing
-    im   = Image.open(filename).convert('RGBA').convert('RGB')
+    im   = Image.fromarray(filename).convert('RGBA').convert('RGB')
     imnp = np.array(im)
     h, w = imnp.shape[:2]
-
     # Get list of unique colours...
     # Arrange all pixels into a tall column of 3 RGB values and find unique rows (colours)
     colours, counts = np.unique(imnp.reshape(-1,3), axis=0, return_counts=1)
     # Get area and portion of black color
     SumCount=0
     SumProportion=0
-
     # Iterate through unique colours
     for index, colour in enumerate(colours):
         count = counts[index]
         proportion = (100 * count) / (h * w)
-        # print(f"   Colour: {colour}, count: {count}, proportion: {proportion:.2f}%")
         if index<=20:
           SumCount=SumCount+count
           SumProportion=SumProportion+proportion
-    # print(f"   sumcount: {SumCount}")
-    # print(f"   SumProportion: {SumProportion}")
-    print(f" {p.stem}, {SumCount}, {SumProportion}  ")
+    print(f"  {SumCount}, {SumProportion}  ")
 
 
 # sys.stdout = open("height.txt", "w")
@@ -48,22 +43,22 @@ while (1):
     ret, frame = cap1.read()  # reading the image
 
     # Bounding Box
-    # sub_image = fgbg.apply(frame)  # background subtraction
-    # ret, thresh = cv2.threshold(sub_image, 127, 255, 0)  # thresholding
-    # contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)  # finding the contours
-    # areas = [cv2.contourArea(c) for c in contours]
-    # if len(areas) > 1:
-    #     max_index = np.argmax(areas)
-    #     cnt = contours[max_index]
-    #     if areas[max_index] > 70:
-    #         x, y, w, h = cv2.boundingRect(cnt)
-    #         cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
-    #         string_ = "fire" + str(x) + ' ' + str(y) + ' ' + str(w) + ' ' + str(h)
-    #         #            serport.write(string_)
-    #         index = index+1
-    #         print(index, ',', str(h))
-    #         cv2.putText(frame, 'fire', (x, y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
-    #         cv2.imshow('fire detection', frame)
+    sub_image = fgbg.apply(frame)  # background subtraction
+    ret, thresh = cv2.threshold(sub_image, 127, 255, 0)  # thresholding
+    contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)  # finding the contours
+    areas = [cv2.contourArea(c) for c in contours]
+    if len(areas) > 1:
+        max_index = np.argmax(areas)
+        cnt = contours[max_index]
+        if areas[max_index] > 70:
+            x, y, w, h = cv2.boundingRect(cnt)
+            cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
+            string_ = "fire" + str(x) + ' ' + str(y) + ' ' + str(w) + ' ' + str(h)
+            #            serport.write(string_)
+            index = index+1
+            print(index, ',', str(h))
+            cv2.putText(frame, 'fire', (x, y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
+            cv2.imshow('fire detection', frame)
 
 
     # flame shape area
@@ -77,7 +72,7 @@ while (1):
     # n_showimg = len(show_image)
     # print(n_showimg)
     processLog(gs_neg)
-    cv2.imshow(show_imagename[0], show_image[0])
+    # cv2.imshow(show_imagename[0], show_image[0])
 
     k = cv2.waitKey(30) & 0xff
     if k == 27:
