@@ -17,14 +17,10 @@ fgbg = cv2.createBackgroundSubtractorMOG2()
 sys.stdout = open("height.txt", "w")
 index = 0
 while (1):
-    # ret, frame = cv2.imread('/Users/wangmeijie/ALLImportantProjects/Flame+MaskRCNN/data/JPEGImages_NG/frame333.jpg')
-
     ret, frame = cap1.read()  # reading the image
     sub_image = fgbg.apply(frame)  # background subtraction
-
     ret, thresh = cv2.threshold(sub_image, 127, 255, 0)  # thresholding
     contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)  # finding the contours
-
     areas = [cv2.contourArea(c) for c in contours]
     if len(areas) > 1:
         max_index = np.argmax(areas)
@@ -34,21 +30,16 @@ while (1):
             cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
             string_ = "fire" + str(x) + ' ' + str(y) + ' ' + str(w) + ' ' + str(h)
             #            serport.write(string_)
-            # print(string_)
             index = index+1
-            # print(str(h))
-            # print(index))
             print(index, ',', str(h))
             cv2.putText(frame, 'fire', (x, y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
             cv2.imshow('fire detection', frame)
         # else:
         #     print("none")
             # break
-
     k = cv2.waitKey(30) & 0xff
     if k == 27:
         break
-
 cap1.release()
 cv2.destroyAllWindows()
 sys.stdout.close()
