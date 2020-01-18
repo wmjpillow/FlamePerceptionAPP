@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+import sys
 # import skimage
 # import serial
 import matplotlib as mpl
@@ -13,6 +14,8 @@ cap1 = cv2.VideoCapture('/Users/wangmeijie/ALLImportantProjects/FlameDetectionAP
 
 fgbg = cv2.createBackgroundSubtractorMOG2()
 # serport = serial.Serial("COM1", 115200)
+
+sys.stdout = open("height.txt", "w")
 
 while (1):
     # ret, frame = cv2.imread('/Users/wangmeijie/ALLImportantProjects/Flame+MaskRCNN/data/JPEGImages_NG/frame333.jpg')
@@ -32,11 +35,14 @@ while (1):
             cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
             string_ = "fire" + str(x) + ' ' + str(y) + ' ' + str(w) + ' ' + str(h)
             #            serport.write(string_)
-            print(string_)
+            # print(string_)
+            print(str(h))
+            # print(frame)
             cv2.putText(frame, 'fire', (x, y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
             cv2.imshow('fire detection', frame)
         else:
             print("none")
+            # break
 
     k = cv2.waitKey(30) & 0xff
     if k == 27:
@@ -44,3 +50,6 @@ while (1):
 
 cap1.release()
 cv2.destroyAllWindows()
+
+
+sys.stdout.close()
