@@ -11,12 +11,11 @@ import matplotlib.image as mpimg
 # REFERENCE: https://github.com/benjamincastillo2020/FireDetectionCode
 
 cap1 = cv2.VideoCapture('/Users/wangmeijie/ALLImportantProjects/FlameDetectionAPP/WebApplication/static/Videos/4cm_test.mp4')
-
 fgbg = cv2.createBackgroundSubtractorMOG2()
 # serport = serial.Serial("COM1", 115200)
 
 sys.stdout = open("height.txt", "w")
-
+index = 0
 while (1):
     # ret, frame = cv2.imread('/Users/wangmeijie/ALLImportantProjects/Flame+MaskRCNN/data/JPEGImages_NG/frame333.jpg')
 
@@ -36,12 +35,14 @@ while (1):
             string_ = "fire" + str(x) + ' ' + str(y) + ' ' + str(w) + ' ' + str(h)
             #            serport.write(string_)
             # print(string_)
-            print(str(h))
-            # print(frame)
+            index = index+1
+            # print(str(h))
+            # print(index))
+            print(index, str(h))
             cv2.putText(frame, 'fire', (x, y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
             cv2.imshow('fire detection', frame)
-        else:
-            print("none")
+        # else:
+        #     print("none")
             # break
 
     k = cv2.waitKey(30) & 0xff
@@ -50,6 +51,4 @@ while (1):
 
 cap1.release()
 cv2.destroyAllWindows()
-
-
 sys.stdout.close()
