@@ -13,7 +13,7 @@ from PIL import Image
 cap1 = cv2.VideoCapture('/Users/wangmeijie/ALLImportantProjects/FlameDetectionAPP/WebApplication/static/Videos/4cm_test.mp4')
 fgbg = cv2.createBackgroundSubtractorMOG2()
 
-sys.stdout = open("height.txt", "w")
+sys.stdout = open("Data.txt", "w")
 ID = 0
 
 while (1):
