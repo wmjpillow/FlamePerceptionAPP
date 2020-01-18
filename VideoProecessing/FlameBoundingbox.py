@@ -38,7 +38,7 @@ while (1):
             index = index+1
             # print(str(h))
             # print(index))
-            print(index, str(h))
+            print(index, ',', str(h))
             cv2.putText(frame, 'fire', (x, y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
             cv2.imshow('fire detection', frame)
         # else:
