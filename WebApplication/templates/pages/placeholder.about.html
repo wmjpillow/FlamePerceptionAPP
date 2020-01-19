@@ -22,12 +22,21 @@
     .append("g")
       .attr("transform",
             "translate(" + margin.left + "," + margin.top + ")");
+
+  var svg2 = d3.select("#Area")
+    .append("svg2")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+    .append("g2")
+      .attr("transform",
+            "translate(" + margin.left + "," + margin.top + ")");
   
   //Read the data
-  d3.csv("/static/data/sortedData.csv",function(data) {  
+  d3.csv("/static/data/Data1.csv",function(data) {
       console.log(data);
       console.log(d3.extent(data, function(d) { return +d.I; }));
       console.log(d3.extent(data, function(d) { return +d.S; }));
+      console.log(d3.extent(data, function(d) { return +d.H; }));
       // Add X axis --> it is a date format
       var x = d3.scaleTime()
         .domain(d3.extent(data, function(d) { return +d.I; }))
@@ -52,6 +61,32 @@
         .attr("d", d3.line()
           .x(function(d) { return x(d.I) })
           .y(function(d) { return y(d.S) })
+          )
+
+    // Add X axis --> it is a date format
+      var x = d3.scaleTime()
+        .domain(d3.extent(data, function(d) { return +d.I; }))
+        .range([ 0, width ]);
+      svg2.append("g2")
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x));
+
+      // Add Y axis
+      var y = d3.scaleLinear()
+        .domain(d3.extent(data, function(d) { return +d.H; }))
+        .range([ height, 0 ]);
+      svg2.append("g2")
+        .call(d3.axisLeft(y));
+
+      // Add the line
+      svg2.append("path")
+        .datum(data)
+        .attr("fill", "none")
+        .attr("stroke", "red")
+        .attr("stroke-width", 1.5)
+        .attr("d", d3.line()
+          .x(function(d) { return x(d.I) })
+          .y(function(d) { return y(d.H) })
           )
   })
   </script>

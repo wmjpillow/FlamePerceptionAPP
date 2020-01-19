@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 import sys
+# import pandas as pd
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
@@ -13,6 +14,7 @@ from PIL import Image
 cap1 = cv2.VideoCapture('/Users/wangmeijie/ALLImportantProjects/FlameDetectionAPP/WebApplication/static/Videos/4cm_test.mp4')
 fgbg = cv2.createBackgroundSubtractorMOG2()
 
+
 sys.stdout = open("Data.txt", "w")
 ID = 0
 
@@ -24,10 +26,8 @@ while (1):
     gs_neg = 255 - gs.astype(int)
     gs_neg[gs_neg > 50] = 1000
     gs_neg = gs_neg.astype('uint8')
-    # Show Image List
     show_imagename = ['negative']
     show_image = [gs_neg]
-    # processLog(gs_neg)
     im   = Image.fromarray(gs_neg).convert('RGBA').convert('RGB')
     imnp = np.array(im)
     h, w = imnp.shape[:2]
@@ -40,7 +40,6 @@ while (1):
         if index<=20:
           SumCount=SumCount+count
           SumProportion=SumProportion+proportion
-    # print(SumCount, SumProportion)
 
     # Bounding Box
     sub_image = fgbg.apply(frame)  # background subtraction
@@ -58,12 +57,15 @@ while (1):
             print(ID, ',', str(h), ',', SumCount, ',', SumProportion)
             cv2.putText(frame, 'fire', (x, y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
             cv2.imshow('fire detection', frame)
-
-    k = cv2.waitKey(30) & 0xff
+    cv2.waitKey(300)
+    k = cv2.waitKey(300) & 0xFF == ord('q')
     if k == 27:
         break
 cap1.release()
 cv2.destroyAllWindows()
 sys.stdout.close()
+
+# df = pd.read_fwf('Data.txt', names=['I','H','S','P'])
+# df.to_csv('Data.csv')
 
 
