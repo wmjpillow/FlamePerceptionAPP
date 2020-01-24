@@ -24,12 +24,12 @@
             "translate(" + margin.left + "," + margin.top + ")");
 
   var svg2 = d3.select("#Area")
-    .append("svg2")
+    .append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
-    .append("g2")
-      .attr("transform",
-            "translate(" + margin.left + "," + margin.top + ")");
+    // .append("g2")
+    //   .attr("transform",
+    //         "translate(" + margin.left + "," + margin.top + ")");
   
   //Read the data
   d3.csv("/static/data/Data1.csv",function(data) {
