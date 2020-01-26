@@ -14,15 +14,12 @@ import math
 cap1 = cv2.VideoCapture('/Users/wangmeijie/ALLImportantProjects/FlameDetectionAPP/WebApplication/static/Videos/4cm_test.mp4')
 fgbg = cv2.createBackgroundSubtractorMOG2()
 count = 0
-# sys.stdout = open("Data.txt", "w")
+sys.stdout = open("Data.csv", "w")
 ID = 0
 
-while cap1.isOpened():
+while 1:
     ret, frame = cap1.read()  # reading the image
-    # if ret:
-    #     # cv2.imwrite('frame{:d}.jpg'.format(count), frame)
-    #     count += 30 # i.e. at 30 fps, this advances one second
-    #     cap1.set(1, count)
+    if count%10==0:
     # flame shape area
         gs = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         gs_neg = 255 - gs.astype(int)
@@ -63,9 +60,11 @@ while cap1.isOpened():
         k = cv2.waitKey(300) & 0xFF == ord('q')
         if k == 27:
           break
+    count+=1
+
 cap1.release()
 cv2.destroyAllWindows()
-# sys.stdout.close()
+sys.stdout.close()
 
 # df = pd.read_fwf('Data.txt', names=['I','H','S','P'])
 # df.to_csv('Data.csv')
