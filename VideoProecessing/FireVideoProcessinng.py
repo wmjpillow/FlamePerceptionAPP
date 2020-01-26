@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 from pathlib import Path
 from PIL import Image
+# import pandas as pd
 import math
 # get_ipython().magic(u'matplotlib inline')
 # REFERENCE: https://github.com/benjamincastillo2020/FireDetectionCode
@@ -15,6 +16,8 @@ cap1 = cv2.VideoCapture('/Users/wangmeijie/ALLImportantProjects/FlameDetectionAP
 fgbg = cv2.createBackgroundSubtractorMOG2()
 count = 0
 sys.stdout = open("Data.csv", "w")
+# names = ['I', 'H', 'S', 'P']
+print('I', ',', 'H', ',', 'S', ',', 'P')
 ID = 0
 
 while 1:
@@ -55,7 +58,7 @@ while 1:
               ID = ID+1
               print(ID, ',', str(h), ',', SumCount, ',', SumProportion)
               cv2.putText(frame, 'fire', (x, y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
-              cv2.imshow('fire detection', frame)
+              # cv2.imshow('fire detection', frame)
         cv2.waitKey(300)
         k = cv2.waitKey(300) & 0xFF == ord('q')
         if k == 27:
@@ -66,7 +69,9 @@ cap1.release()
 cv2.destroyAllWindows()
 sys.stdout.close()
 
-# df = pd.read_fwf('Data.txt', names=['I','H','S','P'])
-# df.to_csv('Data.csv')
+# dD=pd.read_csv('Data.csv',  names=['I','H','S','P'])
+# print (dD)
+# dD.to_csv('/Users/wangmeijie/ALLImpoantProjects/FlameDetectionAPP/WebApplication/static/data/Data.csv', encoding='utf-8', index=False)
+
 
 
