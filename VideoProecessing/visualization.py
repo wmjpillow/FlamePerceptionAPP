@@ -21,6 +21,6 @@ import numpy as np
 # dh.to_csv('/Users/wangmeijie/ALLImportantProjects/FlameDetectionAPP/WebApplication/static/data/heightData.csv', encoding='utf-8', index=False)
 
 
-dD=pd.read_csv('Data1.csv',  names=['I','H','S','P'])
+dD=pd.read_csv('Data.csv',  names=['I','H','S','P'])
 print (dD)
-dD.to_csv('/Users/wangmeijie/ALLImportantProjects/FlameDetectionAPP/WebApplication/static/data/Data1.csv', encoding='utf-8', index=False)
+dD.to_csv('/Users/wangmeijie/ALLImpoantProjects/FlameDetectionAPP/WebApplication/static/data/Data.csv', encoding='utf-8', index=False)
