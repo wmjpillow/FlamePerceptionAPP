@@ -12,7 +12,7 @@
   // set the dimensions and margins of the graph
   var margin = {top: 10, right: 30, bottom: 30, left: 60},
       width = 1260 - margin.left - margin.right,
-      height = 700 - margin.top - margin.bottom;
+      height = 300 - margin.top - margin.bottom;
   
   // append the svg object to the body of the page
   var svg = d3.select("#Area")
@@ -27,9 +27,9 @@
     .append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
-    // .append("g2")
-    //   .attr("transform",
-    //         "translate(" + margin.left + "," + margin.top + ")");
+    .append("g")
+      .attr("transform",
+            "translate(" + margin.left + "," + margin.top + ")");
   
   //Read the data
   d3.csv("/static/data/Data.csv",function(data) {
@@ -67,7 +67,7 @@
       var x = d3.scaleTime()
         .domain(d3.extent(data, function(d) { return +d.I; }))
         .range([ 0, width ]);
-      svg2.append("g2")
+      svg2.append("g")
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x));
 
@@ -75,7 +75,7 @@
       var y = d3.scaleLinear()
         .domain(d3.extent(data, function(d) { return +d.H; }))
         .range([ height, 0 ]);
-      svg2.append("g2")
+      svg2.append("g")
         .call(d3.axisLeft(y));
 
       // Add the line
