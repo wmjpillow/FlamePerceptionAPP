@@ -7,6 +7,8 @@ It will include both web Application and mobile Application.
 
 The web Application is developed with flask framework and the mobile application is developed with ionic framework.
 
+![GitHub Logo](/img/video1.png)
+
 Reference:
 Model Reference: https://engineering.matterport.com/splash-of-color-instance-segmentation-with-mask-r-cnn-and-tensorflow-7c761e238b46
 

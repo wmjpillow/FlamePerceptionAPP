@@ -50,7 +50,8 @@
         .domain(d3.extent(data, function(d) { return +d.S; }))
         .range([ height, 0 ]);
       svg.append("g")
-        .call(d3.axisLeft(y));
+        .call(d3.axisLeft(y))
+        .text("Area");
   
       // Add the line
       svg.append("path")
@@ -76,7 +77,8 @@
         .domain(d3.extent(data, function(d) { return +d.H; }))
         .range([ height, 0 ]);
       svg2.append("g")
-        .call(d3.axisLeft(y));
+        .call(d3.axisLeft(y))
+        .text("Height");
 
       // Add the line
       svg2.append("path")
