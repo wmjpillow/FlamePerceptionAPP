@@ -6,6 +6,13 @@
   <h1>Visualization</h1>
 </div>
 <div id="Area"></div>
+<style>
+  .label{
+  fill:black;
+  font-family:"Times New Roman", Times, serif;
+  font-size:12px;
+}
+</style>
 
 <script src="https://d3js.org/d3.v4.js"></script>
 <script>
@@ -44,10 +51,9 @@
       svg.append("g")
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x))
-        .append("text")
-          // .attr("class","label")
-          .attr("x",width/2)
-          .attr("y", 35)
+        .append("text").attr("class","label")
+          .attr("x",width-15)
+          .attr("y", -5)
           .style("text-anchor","middle")
           .text("Frame");
   
@@ -58,9 +64,9 @@
       svg.append("g")
         .call(d3.axisLeft(y))
         .append("text")
-          // .attr("class","label")
-          .attr("x",width/2)
-          .attr("y", 35)
+          .attr("class","label")
+          .attr("x",20)
+          .attr("y", 10)
           .style("text-anchor","middle")
           .text("Area");
   
@@ -83,9 +89,9 @@
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x))
         .append("text")
-          // .attr("class","label")
-          .attr("x",width/2)
-          .attr("y", 35)
+          .attr("class","label")
+          .attr("x",width-15)
+          .attr("y", -5)
           .style("text-anchor","middle")
           .text("Frame");
 
@@ -96,9 +102,9 @@
       svg2.append("g")
         .call(d3.axisLeft(y))
         .append("text")
-          // .attr("class","label")
-          .attr("x",width/2)
-          .attr("y", 35)
+          .attr("class","label")
+          .attr("x",20)
+          .attr("y", 10)
           .style("text-anchor","middle")
           .text("Height");
 
