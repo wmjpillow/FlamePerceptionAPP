@@ -39,14 +39,15 @@
             "translate(" + margin.left + "," + margin.top + ")");
   
   //Read the data
-  d3.csv("/static/data/Data.csv",function(data) {
+  d3.csv("/static/data/Data_Other2.csv",function(data) {
       console.log(data);
       console.log(d3.extent(data, function(d) { return +d.I; }));
       console.log(d3.extent(data, function(d) { return +d.S; }));
       console.log(d3.extent(data, function(d) { return +d.H; }));
       // Add X axis --> it is a date format
-      var x = d3.scaleTime()
-        .domain(d3.extent(data, function(d) { return +d.I; }))
+      var x = d3.scaleLinear()
+        // .domain(d3.extent(data, function(d) { return +d.I; }))
+              .domain([0,400])
         .range([ 0, width ]);
       svg.append("g")
         .attr("transform", "translate(0," + height + ")")
@@ -59,7 +60,8 @@
   
       // Add Y axis
       var y = d3.scaleLinear()
-        .domain(d3.extent(data, function(d) { return +d.S; }))
+        // .domain(d3.extent(data, function(d) { return +d.S; }))
+              .domain([0,30000])
         .range([ height, 0 ]);
       svg.append("g")
         .call(d3.axisLeft(y))
@@ -82,8 +84,10 @@
           )
 
     // Add X axis --> it is a date format
-      var x = d3.scaleTime()
-        .domain(d3.extent(data, function(d) { return +d.I; }))
+    //      var x = d3.scaleTime()
+      var x = d3.scaleLinear()
+        // .domain(d3.extent(data, function(d) { return +d.I; }))
+              .domain([0,400])
         .range([ 0, width ]);
       svg2.append("g")
         .attr("transform", "translate(0," + height + ")")
@@ -97,7 +101,8 @@
 
       // Add Y axis
       var y = d3.scaleLinear()
-        .domain(d3.extent(data, function(d) { return +d.H; }))
+        // .domain(d3.extent(data, function(d) { return +d.H; }))
+              .domain([0,600])
         .range([ height, 0 ]);
       svg2.append("g")
         .call(d3.axisLeft(y))
