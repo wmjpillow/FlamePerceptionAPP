@@ -39,7 +39,7 @@
             "translate(" + margin.left + "," + margin.top + ")");
   
   //Read the data
-  d3.csv("/static/data/Data_Other3.csv",function(data) {
+  d3.csv("/static/data/Data_Other1.csv",function(data) {
       console.log(data);
       console.log(d3.extent(data, function(d) { return +d.I; }));
       console.log(d3.extent(data, function(d) { return +d.S; }));
