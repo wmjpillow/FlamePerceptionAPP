@@ -9,6 +9,15 @@ The web Application is developed with flask framework and the mobile application
 
 ![GitHub Logo](/img/video1.png)
 
+
+--------------------------------------------------
+TO DO:
+- Refine the model (pre-processing image+ train in MaskRCNN)
+- Calculate flame shape in cm instead of pixels in image. 
+- Filter the raw data of bad recording.
+- Backend system completion with Interactive data visualization.
+
+--------------------------------------------------
 Reference:
 Model Reference: https://engineering.matterport.com/splash-of-color-instance-segmentation-with-mask-r-cnn-and-tensorflow-7c761e238b46
 
