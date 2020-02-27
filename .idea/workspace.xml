@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c5260bce-8f4a-4690-8628-ee3b32705958" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VideoProecessing/data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/VideoProecessing/data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VideoProecessing/data.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/VideoProecessing/height.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/VideoProecessing/height.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApplication/templates/pages/placeholder.about.html" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication/templates/pages/placeholder.about.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,7 +18,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/WebApplication" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1WX6PEC8BPGYWbIpkZA2mAGrIcG" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -40,29 +35,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.FireVideoProcessinng">
-    <configuration name="CutVideo" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="FlameDetectionAPP" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/VideoProecessing" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/VideoProecessing/CutVideo.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.SingleImageProcessing">
     <configuration name="FireVideoProcessinng" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="FlameDetectionAPP" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -99,6 +72,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/VideoProecessing/FlameBoundingbox.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="SingleImageProcessing" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="FlameDetectionAPP" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/VideoProecessing" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/VideoProecessing/SingleImageProcessing.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -153,11 +148,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.SingleImageProcessing" />
         <item itemvalue="Python.FireVideoProcessinng" />
         <item itemvalue="Python.visualization" />
         <item itemvalue="Python.TestCutVideo" />
         <item itemvalue="Python.FlameBoundingbox" />
-        <item itemvalue="Python.CutVideo" />
       </list>
     </recent_temporary>
   </component>
@@ -193,7 +188,19 @@
       <workItem from="1580062753775" duration="9110000" />
       <workItem from="1580945490392" duration="3177000" />
       <workItem from="1580991134519" duration="1000" />
-      <workItem from="1580994176162" duration="3477000" />
+      <workItem from="1580994176162" duration="4167000" />
+      <workItem from="1581005454241" duration="1051000" />
+      <workItem from="1581106482577" duration="1509000" />
+      <workItem from="1581160386083" duration="2166000" />
+      <workItem from="1581177003950" duration="2888000" />
+      <workItem from="1581201001892" duration="15000" />
+      <workItem from="1581262134142" duration="3155000" />
+      <workItem from="1581267476101" duration="2007000" />
+      <workItem from="1581364702196" duration="4235000" />
+      <workItem from="1581447068399" duration="6000" />
+      <workItem from="1581456103942" duration="476000" />
+      <workItem from="1581515966294" duration="659000" />
+      <workItem from="1582726952112" duration="1480000" />
     </task>
     <servers />
   </component>
@@ -201,46 +208,46 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1109" height="171" key="GridCell.Tab.0.bottom" timestamp="1580994450624">
+    <state width="1216" height="80" key="GridCell.Tab.0.bottom" timestamp="1582733924938">
       <screen x="0" y="23" width="1680" height="956" />
     </state>
     <state width="1557" height="372" key="GridCell.Tab.0.bottom/0.23.1680.945@0.23.1680.945" timestamp="1579399298185" />
     <state width="1238" height="79" key="GridCell.Tab.0.bottom/0.23.1680.947@0.23.1680.947" timestamp="1579397971859" />
-    <state width="1556" height="191" key="GridCell.Tab.0.bottom/0.23.1680.949@0.23.1680.949" timestamp="1580077501352" />
-    <state width="1310" height="43" key="GridCell.Tab.0.bottom/0.23.1680.952@0.23.1680.952" timestamp="1580083852605" />
-    <state width="1310" height="216" key="GridCell.Tab.0.bottom/0.23.1680.954@0.23.1680.954" timestamp="1580078780304" />
-    <state width="1109" height="171" key="GridCell.Tab.0.bottom/0.23.1680.956@0.23.1680.956" timestamp="1580994450624" />
-    <state width="1099" height="252" key="GridCell.Tab.0.bottom/0.23.1680.958@0.23.1680.958" timestamp="1580948625302" />
-    <state width="1109" height="171" key="GridCell.Tab.0.center" timestamp="1580994450623">
+    <state width="1238" height="80" key="GridCell.Tab.0.bottom/0.23.1680.949@0.23.1680.949" timestamp="1581274830597" />
+    <state width="1238" height="326" key="GridCell.Tab.0.bottom/0.23.1680.952@0.23.1680.952" timestamp="1581267449606" />
+    <state width="1238" height="180" key="GridCell.Tab.0.bottom/0.23.1680.954@0.23.1680.954" timestamp="1581179112359" />
+    <state width="1216" height="80" key="GridCell.Tab.0.bottom/0.23.1680.956@0.23.1680.956" timestamp="1582733924938" />
+    <state width="1181" height="13" key="GridCell.Tab.0.bottom/0.23.1680.958@0.23.1680.958" timestamp="1580999299048" />
+    <state width="1216" height="80" key="GridCell.Tab.0.center" timestamp="1582733924937">
       <screen x="0" y="23" width="1680" height="956" />
     </state>
     <state width="1557" height="372" key="GridCell.Tab.0.center/0.23.1680.945@0.23.1680.945" timestamp="1579399298184" />
     <state width="1238" height="79" key="GridCell.Tab.0.center/0.23.1680.947@0.23.1680.947" timestamp="1579397971859" />
-    <state width="1556" height="191" key="GridCell.Tab.0.center/0.23.1680.949@0.23.1680.949" timestamp="1580077501351" />
-    <state width="1310" height="43" key="GridCell.Tab.0.center/0.23.1680.952@0.23.1680.952" timestamp="1580083852604" />
-    <state width="1310" height="216" key="GridCell.Tab.0.center/0.23.1680.954@0.23.1680.954" timestamp="1580078780304" />
-    <state width="1109" height="171" key="GridCell.Tab.0.center/0.23.1680.956@0.23.1680.956" timestamp="1580994450623" />
-    <state width="1099" height="252" key="GridCell.Tab.0.center/0.23.1680.958@0.23.1680.958" timestamp="1580948625301" />
-    <state width="1109" height="171" key="GridCell.Tab.0.left" timestamp="1580994450623">
+    <state width="1238" height="80" key="GridCell.Tab.0.center/0.23.1680.949@0.23.1680.949" timestamp="1581274830597" />
+    <state width="1238" height="326" key="GridCell.Tab.0.center/0.23.1680.952@0.23.1680.952" timestamp="1581267449606" />
+    <state width="1238" height="180" key="GridCell.Tab.0.center/0.23.1680.954@0.23.1680.954" timestamp="1581179112358" />
+    <state width="1216" height="80" key="GridCell.Tab.0.center/0.23.1680.956@0.23.1680.956" timestamp="1582733924937" />
+    <state width="1181" height="13" key="GridCell.Tab.0.center/0.23.1680.958@0.23.1680.958" timestamp="1580999299048" />
+    <state width="1216" height="80" key="GridCell.Tab.0.left" timestamp="1582733924937">
       <screen x="0" y="23" width="1680" height="956" />
     </state>
     <state width="1557" height="372" key="GridCell.Tab.0.left/0.23.1680.945@0.23.1680.945" timestamp="1579399298183" />
     <state width="1238" height="79" key="GridCell.Tab.0.left/0.23.1680.947@0.23.1680.947" timestamp="1579397971858" />
-    <state width="1556" height="191" key="GridCell.Tab.0.left/0.23.1680.949@0.23.1680.949" timestamp="1580077501351" />
-    <state width="1310" height="43" key="GridCell.Tab.0.left/0.23.1680.952@0.23.1680.952" timestamp="1580083852604" />
-    <state width="1310" height="216" key="GridCell.Tab.0.left/0.23.1680.954@0.23.1680.954" timestamp="1580078780303" />
-    <state width="1109" height="171" key="GridCell.Tab.0.left/0.23.1680.956@0.23.1680.956" timestamp="1580994450623" />
-    <state width="1099" height="252" key="GridCell.Tab.0.left/0.23.1680.958@0.23.1680.958" timestamp="1580948625301" />
-    <state width="1109" height="171" key="GridCell.Tab.0.right" timestamp="1580994450624">
+    <state width="1238" height="80" key="GridCell.Tab.0.left/0.23.1680.949@0.23.1680.949" timestamp="1581274830597" />
+    <state width="1238" height="326" key="GridCell.Tab.0.left/0.23.1680.952@0.23.1680.952" timestamp="1581267449606" />
+    <state width="1238" height="180" key="GridCell.Tab.0.left/0.23.1680.954@0.23.1680.954" timestamp="1581179112358" />
+    <state width="1216" height="80" key="GridCell.Tab.0.left/0.23.1680.956@0.23.1680.956" timestamp="1582733924937" />
+    <state width="1181" height="13" key="GridCell.Tab.0.left/0.23.1680.958@0.23.1680.958" timestamp="1580999299047" />
+    <state width="1216" height="80" key="GridCell.Tab.0.right" timestamp="1582733924937">
       <screen x="0" y="23" width="1680" height="956" />
     </state>
     <state width="1557" height="372" key="GridCell.Tab.0.right/0.23.1680.945@0.23.1680.945" timestamp="1579399298185" />
     <state width="1238" height="79" key="GridCell.Tab.0.right/0.23.1680.947@0.23.1680.947" timestamp="1579397971859" />
-    <state width="1556" height="191" key="GridCell.Tab.0.right/0.23.1680.949@0.23.1680.949" timestamp="1580077501352" />
-    <state width="1310" height="43" key="GridCell.Tab.0.right/0.23.1680.952@0.23.1680.952" timestamp="1580083852605" />
-    <state width="1310" height="216" key="GridCell.Tab.0.right/0.23.1680.954@0.23.1680.954" timestamp="1580078780304" />
-    <state width="1109" height="171" key="GridCell.Tab.0.right/0.23.1680.956@0.23.1680.956" timestamp="1580994450624" />
-    <state width="1099" height="252" key="GridCell.Tab.0.right/0.23.1680.958@0.23.1680.958" timestamp="1580948625302" />
+    <state width="1238" height="80" key="GridCell.Tab.0.right/0.23.1680.949@0.23.1680.949" timestamp="1581274830597" />
+    <state width="1238" height="326" key="GridCell.Tab.0.right/0.23.1680.952@0.23.1680.952" timestamp="1581267449606" />
+    <state width="1238" height="180" key="GridCell.Tab.0.right/0.23.1680.954@0.23.1680.954" timestamp="1581179112359" />
+    <state width="1216" height="80" key="GridCell.Tab.0.right/0.23.1680.956@0.23.1680.956" timestamp="1582733924937" />
+    <state width="1181" height="13" key="GridCell.Tab.0.right/0.23.1680.958@0.23.1680.958" timestamp="1580999299048" />
     <state x="200" y="231" key="SettingsEditor" timestamp="1580077184018">
       <screen x="0" y="23" width="1680" height="949" />
     </state>
@@ -249,22 +256,24 @@
     <state x="200" y="232" key="SettingsEditor/0.23.1680.952@0.23.1680.952" timestamp="1579353801142" />
     <state x="200" y="233" key="SettingsEditor/0.23.1680.956@0.23.1680.956" timestamp="1579298391535" />
     <state x="200" y="233" key="SettingsEditor/0.23.1680.958@0.23.1680.958" timestamp="1579298011489" />
-    <state x="657" y="369" key="com.intellij.ide.util.TipDialog" timestamp="1580994176448">
-      <screen x="0" y="23" width="1680" height="956" />
+    <state x="657" y="367" key="com.intellij.ide.util.TipDialog" timestamp="1582726952800">
+      <screen x="0" y="23" width="1680" height="949" />
     </state>
+    <state x="657" y="365" key="com.intellij.ide.util.TipDialog/0.23.1680.944@0.23.1680.944" timestamp="1581177003256" />
     <state x="657" y="365" key="com.intellij.ide.util.TipDialog/0.23.1680.945@0.23.1680.945" timestamp="1579611102765" />
-    <state x="657" y="366" key="com.intellij.ide.util.TipDialog/0.23.1680.947@0.23.1680.947" timestamp="1580062754117" />
-    <state x="657" y="366" key="com.intellij.ide.util.TipDialog/0.23.1680.949@0.23.1680.949" timestamp="1579550041267" />
-    <state x="657" y="367" key="com.intellij.ide.util.TipDialog/0.23.1680.952@0.23.1680.952" timestamp="1579283570223" />
-    <state x="657" y="368" key="com.intellij.ide.util.TipDialog/0.23.1680.954@0.23.1680.954" timestamp="1579348896568" />
-    <state x="657" y="369" key="com.intellij.ide.util.TipDialog/0.23.1680.956@0.23.1680.956" timestamp="1580994176448" />
+    <state x="657" y="366" key="com.intellij.ide.util.TipDialog/0.23.1680.947@0.23.1680.947" timestamp="1581201015406" />
+    <state x="657" y="367" key="com.intellij.ide.util.TipDialog/0.23.1680.949@0.23.1680.949" timestamp="1582726952800" />
+    <state x="657" y="367" key="com.intellij.ide.util.TipDialog/0.23.1680.952@0.23.1680.952" timestamp="1581267476316" />
+    <state x="657" y="368" key="com.intellij.ide.util.TipDialog/0.23.1680.954@0.23.1680.954" timestamp="1581357566387" />
+    <state x="657" y="369" key="com.intellij.ide.util.TipDialog/0.23.1680.956@0.23.1680.956" timestamp="1581515973780" />
+    <state x="657" y="371" key="com.intellij.ide.util.TipDialog/0.23.1680.963@0.23.1680.963" timestamp="1581456110372" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/FlameDetectionAPP$SingleImageProcessing.coverage" NAME="SingleImageProcessing Coverage Results" MODIFIED="1579288049158" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VideoProecessing" />
+    <SUITE FILE_PATH="coverage/FlameDetectionAPP$SingleImageProcessing.coverage" NAME="SingleImageProcessing Coverage Results" MODIFIED="1582727823423" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VideoProecessing" />
     <SUITE FILE_PATH="coverage/FlameDetectionAPP$FlameImagesProcessing.coverage" NAME="FlameImagesProcessing Coverage Results" MODIFIED="1579293828139" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VideoProecessing" />
     <SUITE FILE_PATH="coverage/FlameDetectionAPP$calculateAndSave.coverage" NAME="calculateAndSave Coverage Results" MODIFIED="1579294284269" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VideoProecessing" />
     <SUITE FILE_PATH="coverage/FlameDetectionAPP$TestCutVideo.coverage" NAME="TestCutVideo Coverage Results" MODIFIED="1580072824680" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VideoProecessing" />
-    <SUITE FILE_PATH="coverage/FlameDetectionAPP$FireVideoProcessinng.coverage" NAME="FireVideoProcessinng Coverage Results" MODIFIED="1580994450609" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VideoProecessing" />
+    <SUITE FILE_PATH="coverage/FlameDetectionAPP$FireVideoProcessinng.coverage" NAME="FireVideoProcessinng Coverage Results" MODIFIED="1581274135066" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VideoProecessing" />
     <SUITE FILE_PATH="coverage/FlameDetectionAPP$visualization.coverage" NAME="visualization Coverage Results" MODIFIED="1580077403392" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VideoProecessing" />
     <SUITE FILE_PATH="coverage/FlameDetectionAPP$FlameImageProcessing.coverage" NAME="FlameImageProcessing Coverage Results" MODIFIED="1579288188127" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VideoProecessing" />
     <SUITE FILE_PATH="coverage/FlameDetectionAPP$NegativeImageProcessing.coverage" NAME="NegativeImageProcessing Coverage Results" MODIFIED="1579286678286" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VideoProecessing" />
