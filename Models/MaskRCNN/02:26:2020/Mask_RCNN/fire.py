@@ -156,9 +156,8 @@ class FireInferenceConfig(FireConfig):
 #  Dataset
 ############################################################
 
-class CocoDataset(utils.Dataset):
-    def load_coco(self, dataset_dir, subset, class_ids=None,
-                  class_map=None, return_coco=False):
+class FireDataset(utils.Dataset):
+    def load_fire(self, dataset_dir, subset):
         """Load a subset of the COCO dataset.
         dataset_dir: The root directory of the COCO dataset.
         subset: What to load (train, val, minival, val35k)
