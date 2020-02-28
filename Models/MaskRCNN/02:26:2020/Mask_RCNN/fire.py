@@ -181,51 +181,18 @@ class FireDataset(utils.Dataset):
         if subset == "val":
             image_ids = VAL_IMAGE_IDS
         else:
-
-
-        # Path
-        image_dir = os.path.join(dataset_dir, "train2014" if subset == "train"
-                                 else "val2014")
-
-        # Create COCO object
-        json_path_dict = {
-            "train": "annotations/instances_train2014.json",
-            "val": "annotations/instances_val2014.json",
-            "minival": "annotations/instances_minival2014.json",
-            "val35k": "annotations/instances_valminusminival2014.json",
-        }
-        coco = COCO(os.path.join(dataset_dir, json_path_dict[subset]))
-
-        # Load all classes or a subset?
-        if not class_ids:
-            # All classes
-            class_ids = sorted(coco.getCatIds())
-
-        # All images or a subset?
-        if class_ids:
-            image_ids = []
-            for id in class_ids:
-                image_ids.extend(list(coco.getImgIds(catIds=[id])))
-            # Remove duplicates
-            image_ids = list(set(image_ids))
-        else:
-            # All images
-            image_ids = list(coco.imgs.keys())
-
-        # Add classes
-        for i in class_ids:
-            self.add_class("coco", i, coco.loadCats(i)[0]["name"])
+            # Get image ids from directory names
+            image_ids = next(os.walk(dataset_dir))[1]
+            if subset == "train":
+                image_ids = list(set(image_ids)-set(VAL_IMAGE_IDS))
 
         # Add images
-        for i in image_ids:
+        for image_id in image_ids:
             self.add_image(
-                "coco", image_id=i,
-                path=os.path.join(image_dir, coco.imgs[i]['file_name']),
-                width=coco.imgs[i]["width"],
-                height=coco.imgs[i]["height"],
-                annotations=coco.loadAnns(coco.getAnnIds(imgIds=[i], iscrowd=False)))
-        if return_coco:
-            return coco
+                "fire",
+                image_id = image_id,
+                path = os.path.join(dataset_dir, image_id, "images/{}.png".format(image_id)))
+
 
     def load_mask(self, image_id):
         """Load instance masks for the given image.
@@ -239,75 +206,58 @@ class FireDataset(utils.Dataset):
             one mask per instance.
         class_ids: a 1D array of class IDs of the instance masks.
         """
-        # If not a COCO image, delegate to parent class.
-        image_info = self.image_info[image_id]
-        if image_info["source"] != "coco":
-            return super(self.__class__).load_mask(image_id)
+        info = self.image_info[image_id]
+        # Get mask directory from image path
+        mask_dir = os.path.join(os.path.dirname(os.path.dirname(info['path'])), "masks")
 
-        instance_masks = []
-        class_ids = []
-        annotations = self.image_info[image_id]["annotations"]
-        # Build mask of shape [height, width, instance_count] and list
-        # of class IDs that correspond to each channel of the mask.
-        for annotation in annotations:
-            class_id = self.map_source_class_id(
-                "coco.{}".format(annotation['category_id']))
-            if class_id:
-                m = self.annToMask(annotation, image_info["height"],
-                                   image_info["width"])
-                # Some objects are so small that they're less than 1 pixel area
-                # and end up rounded out. Skip those objects.
-                if m.max() < 1:
-                    continue
-                instance_masks.append(m)
-                class_ids.append(class_id)
-
-        # Pack instance masks into an array
-        if class_ids:
-            mask = np.stack(instance_masks, axis=2)
-            class_ids = np.array(class_ids, dtype=np.int32)
-            return mask, class_ids
-        else:
-            # Call super class to return an empty mask
-            return super(self.__class__).load_mask(image_id)
+        # Read mask files from .png image
+        mask = []
+        for f in next(os.walk(mask_dir))[2]:
+            if f.endswith(".png"):
+                m = skimage.io.imread(os.path.join(mask_dir, f)).astype(np.bool)
+                mask.append(m)
+        mask = np.stack(mask, axis=-1)
+        # return mask, and array of class IDs of each instance. Since we have
+        # one class ID, we return an array of ones
+        return mask, np.ones([mask.shape[-1]], dtype=np.int32)
 
     def image_reference(self, image_id):
         """Return a link to the image in the COCO Website."""
         info = self.image_info[image_id]
-        if info["source"] == "coco":
-            return "http://cocodataset.org/#explore?id={}".format(info["id"])
+        if info["source"] == "fire":
+            return info["id"]
         else:
-            super(self.__class__).image_reference(self, image_id)
+            super(self.__class__, self).image_reference(image_id)
 
     # The following two functions are from pycocotools with a few changes.
 
-    def annToRLE(self, ann, height, width):
-        """
-        Convert annotation which can be polygons, uncompressed RLE to RLE.
-        :return: binary mask (numpy 2D array)
-        """
-        segm = ann['segmentation']
-        if isinstance(segm, list):
-            # polygon -- a single object might consist of multiple parts
-            # we merge all parts into one mask rle code
-            rles = maskUtils.frPyObjects(segm, height, width)
-            rle = maskUtils.merge(rles)
-        elif isinstance(segm['counts'], list):
-            # uncompressed RLE
-            rle = maskUtils.frPyObjects(segm, height, width)
-        else:
-            # rle
-            rle = ann['segmentation']
-        return rle
-
-    def annToMask(self, ann, height, width):
-        """
-        Convert annotation which can be polygons, uncompressed RLE, or RLE to binary mask.
-        :return: binary mask (numpy 2D array)
-        """
-        rle = self.annToRLE(ann, height, width)
-        m = maskUtils.decode(rle)
-        return m
+    # def annToRLE(self, ann, height, width):
+    #     """
+    #     Convert annotation which can be polygons, uncompressed RLE to RLE.
+    #     :return: binary mask (numpy 2D array)
+    #     """
+    #     segm = ann['segmentation']
+    #     if isinstance(segm, list):
+    #         # polygon -- a single object might consist of multiple parts
+    #         # we merge all parts into one mask rle code
+    #         rles = maskUtils.frPyObjects(segm, height, width)
+    #         rle = maskUtils.merge(rles)
+    #     elif isinstance(segm['counts'], list):
+    #         # uncompressed RLE
+    #         rle = maskUtils.frPyObjects(segm, height, width)
+    #     else:
+    #         # rle
+    #         rle = ann['segmentation']
+    #     return rle
+    #
+    # def annToMask(self, ann, height, width):
+    #     """
+    #     Convert annotation which can be polygons, uncompressed RLE, or RLE to binary mask.
+    #     :return: binary mask (numpy 2D array)
+    #     """
+    #     rle = self.annToRLE(ann, height, width)
+    #     m = maskUtils.decode(rle)
+    #     return m
 
 
 ############################################################
