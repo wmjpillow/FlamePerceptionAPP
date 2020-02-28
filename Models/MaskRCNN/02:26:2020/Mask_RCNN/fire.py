@@ -61,7 +61,9 @@ RESULTS_DIR = os.path.join(ROOT_DIR, "results/fire/")
 
 # The dataset doesn't have a standard train/val split, so I picked
 # a variety of images to surve as a validation set.
-# VAL_IMAGE_IDS = [
+VAL_IMAGE_IDS = [
+
+]
 
 
 ############################################################
@@ -166,6 +168,21 @@ class FireDataset(utils.Dataset):
             different datasets to the same class ID.
         return_coco: If True, returns the COCO object.
         """
+        # Add classes, only one dataset. Naming the class Fire
+        self.add_class("fire", 1, "fire")
+
+        # which subset?
+        # "val": use hard-coded list above
+        # "train": use data from stage1_train minus the hard-coded list above
+        # else: use the data from the specified sub-directory
+        assert subset in ["train", "val", "stage1_train", "stage1_test", "stage2_test"]
+        subset_dir = "stage1_train" if subset in ["train","val"] else subset
+        dataset_dir = os.path.join(dataset_dir, subset_dir)
+        if subset == "val":
+            image_ids = VAL_IMAGE_IDS
+        else:
+
+
         # Path
         image_dir = os.path.join(dataset_dir, "train2014" if subset == "train"
                                  else "val2014")
