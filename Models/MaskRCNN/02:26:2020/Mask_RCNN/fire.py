@@ -441,9 +441,139 @@ def mask_to_rle(image_id, mask, scores):
     return "\n".join(lines)
 
 
+############################################################
+#  Detection
+############################################################
 
+def detect(model, dataset_dir, subset):
+    """Run dtection on imgaes in the given directory."""
+    print("Running on {}".format(dataset_dir))
+    # create directory
+    if not os.path.exists(RESULTS_DIR):
+        os.makedirs(RESULTS_DIR)
+    submit_dir = "submit_{:%Y%m%dT%H%M%S}".format(datetime.datetime.now())
+    submit_dir = os.path.join(RESULTS_DIR, submit_dir)
+    os.makedirs(submit_dir)
 
+    # Read dataset
+    dataset = FireDataset()
+    dataset.load_fire(dataset_dir, subset)
+    dataset.prepare()
+    # Load over images
+    submission = []
+    for image_id in dataset.image_ids:
+        # Load image and run detection
+        image = dataset.load_image(image_id)
+        # Detect objects
+        r = model.detect([image], verbose=0)[0]
+        # Encode image to RLE. Returns a string of multiple lines
+        source_id = dataset.image_info[image_id]["id"]
+        rle = mask_to_rle(source_id, r["masks"], r["scores"])
+        submission.append(rle)
+        # Save image with masks
+        visualize.display_instances(
+            image, r['rois'], r['masks'], r['class_ids'],
+            dataset.class_names, r['scores'],
+            show_bbox = False, show_mask = False,
+            title="Predictions")
+        plt.savefig("{}/{}.png".format(submit_dir, dataset.image_info[image_id]["id"]))
 
+    # Save to csv file
+    submission = "ImageId, EncodedPixels\n"+"\n".join(submission)
+    file_path = os.path.join(submit_dir, "submit.csv")
+    with open(file_path, "w") as f:
+        f.write(submission)
+    print("Saved to ", submit_dir)
+
+############################################################
+#  Command Line
+############################################################
+
+if __name__ == '__main__':
+    import argparse
+
+    # Parse command line arguments
+    parser = argparse.ArgumentParser(
+        description='Mask R-CNN for nuclei counting and segmentation')
+    parser.add_argument("command",
+                        metavar="<command>",
+                        help="'train' or 'detect'")
+    parser.add_argument('--dataset', required=False,
+                        metavar="/path/to/dataset/",
+                        help='Root directory of the dataset')
+    parser.add_argument('--weights', required=True,
+                        metavar="/path/to/weights.h5",
+                        help="Path to weights .h5 file or 'coco'")
+    parser.add_argument('--logs', required=False,
+                        default=DEFAULT_LOGS_DIR,
+                        metavar="/path/to/logs/",
+                        help='Logs and checkpoints directory (default=logs/)')
+    parser.add_argument('--subset', required=False,
+                        metavar="Dataset sub-directory",
+                        help="Subset of dataset to run prediction on")
+    args = parser.parse_args()
+
+    # Validate arguments
+    if args.command == "train":
+        assert args.dataset, "Argument --dataset is required for training"
+    elif args.command == "detect":
+        assert args.subset, "Provide --subset to run prediction on"
+
+    print("Weights: ", args.weights)
+    print("Dataset: ", args.dataset)
+    if args.subset:
+        print("Subset: ", args.subset)
+    print("Logs: ", args.logs)
+
+    # Configurations
+    if args.command == "train":
+        config = FireConfig()
+    else:
+        config = FireInferenceConfig()
+    config.display()
+
+    # Create model
+    if args.command == "train":
+        model = modellib.MaskRCNN(mode="training", config=config,
+                                  model_dir=args.logs)
+    else:
+        model = modellib.MaskRCNN(mode="inference", config=config,
+                                  model_dir=args.logs)
+
+    # Select weights file to load
+    if args.weights.lower() == "coco":
+        weights_path = COCO_WEIGHTS_PATH
+        # Download weights file
+        if not os.path.exists(weights_path):
+            utils.download_trained_weights(weights_path)
+    elif args.weights.lower() == "last":
+        # Find last trained weights
+        weights_path = model.find_last()
+    elif args.weights.lower() == "imagenet":
+        # Start from ImageNet trained weights
+        weights_path = model.get_imagenet_weights()
+    else:
+        weights_path = args.weights
+
+    # Load weights
+    print("Loading weights ", weights_path)
+    if args.weights.lower() == "coco":
+        # Exclude the last layers because they require a matching
+        # number of classes
+        model.load_weights(weights_path, by_name=True, exclude=[
+            "mrcnn_class_logits", "mrcnn_bbox_fc",
+            "mrcnn_bbox", "mrcnn_mask"])
+    else:
+        model.load_weights(weights_path, by_name=True)
+
+    # Train or evaluate
+    if args.command == "train":
+        train(model, args.dataset, args.subset)
+    elif args.command == "detect":
+        detect(model, args.dataset, args.subset)
+    else:
+        print("'{}' is not recognized. "
+              "Use 'train' or 'detect'".format(args.command))
 
 
 
