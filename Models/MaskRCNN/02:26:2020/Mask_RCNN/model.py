@@ -29,7 +29,7 @@ import keras.engine as KE
 import keras.models as KM
 
 # import utils
-import utils
+from mrcnn import utils
 
 # Requires TensorFlow 1.3+ and Keras 2.0.8+.
 from distutils.version import LooseVersion

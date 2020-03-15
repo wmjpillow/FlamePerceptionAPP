@@ -44,12 +44,13 @@ ROOT_DIR = os.path.abspath("/Users/wangmeijie/ALLImportantProjects/FlameDetectio
 
 # Import Mask RCNN
 sys.path.append(ROOT_DIR)  # To find local version of the library
-from config import Config
-import utils
-# from mrcnn.config import Config
-# from mrcnn import utils
-# from mrcnn import model as modellib
-# from mrcnn import visualize
+# from config import Config
+# import utils
+# import visualize
+from mrcnn.config import Config
+from mrcnn import utils
+from mrcnn import model as modellib
+from mrcnn import visualize
 
 
 # Path to trained weights file
@@ -424,7 +425,7 @@ if __name__ == '__main__':
         config = FireConfig()
     else:
         config = FireInferenceConfig()
-    config.display()
+    # config.display()
 
     # Create model
     if args.command == "train":
