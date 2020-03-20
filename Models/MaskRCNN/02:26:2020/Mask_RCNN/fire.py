@@ -184,6 +184,7 @@ class FireDataset(utils.Dataset):
         assert subset in ["train", "val", "stage1_train", "stage1_test", "stage2_test"]
         subset_dir = "stage1_train" if subset in ["train","val"] else subset
         dataset_dir = os.path.join(dataset_dir, subset_dir)
+        image_ids = VAL_IMAGE_IDS
         if subset == "val":
             image_ids = VAL_IMAGE_IDS
         else:
