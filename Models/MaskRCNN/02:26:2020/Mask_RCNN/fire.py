@@ -275,7 +275,7 @@ def train(model, dataset_dir, subset):
     model.train(dataset_train, dataset_val,
                 learning_rate=config.LEARNING_RATE,
                 epochs=20,
-                aygmentation=augmentation,
+                augmentation=augmentation,
                 layers='heads')
     print("Train all layers")
     model.train(dataset_train, dataset_val,
