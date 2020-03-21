@@ -65,10 +65,9 @@ RESULTS_DIR = os.path.join(ROOT_DIR, "results/fire/")
 # The dataset doesn't have a standard train/val split, so I picked
 # a variety of images to surve as a validation set.
 VAL_IMAGE_IDS = [
-    "frame269", "frame291", "frame385", "frame412", "frame468", "frame533", "frame654",
-    "frame732", "frame943", "frame1058", "frame1171", "frame1276", "frame1333", "frame1450",
-    "frame1506", "frame1669", "frame1798", "frame1898", "frame1993", "frame2058", "frame2092",
-    "frame2170", "frame2293", "frame2435", "frame2496", "frame2674", "frame2780", "frame3022"
+    "frame200", "frame201", "frame202", "frame203", "frame204", "frame205", "frame206",
+    "frame207", "frame208", "frame209", "frame210", "frame211", "frame212", "frame213",
+    "frame214", "frame215", "frame216", "frame217", "frame218", "frame219", "frame220"
 ]
 
 
