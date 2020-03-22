@@ -200,7 +200,7 @@ class FireDataset(utils.Dataset):
             self.add_image(
                 "fire",
                 image_id=image_id,
-                path=os.path.join(dataset_dir, image_id, "images/{}.png".format(image_id)))
+                path=os.path.join(dataset_dir, "{}.png".format(image_id)))
 
 
     def load_mask(self, image_id):
