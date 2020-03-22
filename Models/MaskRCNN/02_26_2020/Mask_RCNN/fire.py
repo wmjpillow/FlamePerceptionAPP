@@ -218,6 +218,7 @@ class FireDataset(utils.Dataset):
         info = self.image_info[image_id]
         # Get mask directory from image path
         mask_dir = os.path.join(os.path.dirname(os.path.dirname(info['path'])), "masks")
+        print("mask_dir=", mask_dir)
 
         # Read mask files from .png image
         mask = []
