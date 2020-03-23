@@ -65,9 +65,9 @@ RESULTS_DIR = os.path.join(ROOT_DIR, "results/fire/")
 # The dataset doesn't have a standard train/val split, so I picked
 # a variety of images to surve as a validation set.
 VAL_IMAGE_IDS = [
-    "frame200", "frame201", "frame202", "frame203", "frame204", "frame205", "frame206",
-    "frame207", "frame208", "frame209", "frame210", "frame211", "frame212", "frame213",
-    "frame214", "frame215", "frame216", "frame217", "frame218", "frame219", "frame220"
+    "frame2500", "frame2501", "frame2502", "frame2503", "frame2504", "frame2505", "frame2506",
+    "frame2507", "frame2508", "frame2509", "frame2510", "frame2511", "frame2512", "frame2513",
+    "frame2514", "frame2515", "frame2516", "frame2517", "frame2518", "frame2519", "frame2520"
 ]
 
 
@@ -183,7 +183,7 @@ class FireDataset(utils.Dataset):
         assert subset in ["train", "val", "stage1_train", "stage1_test", "stage2_test"]
         subset_dir = "stage1_train" if subset in ["train","val"] else subset
         dataset_dir = os.path.join(dataset_dir, subset_dir)
-        image_ids = VAL_IMAGE_IDS
+        # image_ids = VAL_IMAGE_IDS
         if subset == "val":
             image_ids = VAL_IMAGE_IDS
         else:
@@ -194,13 +194,19 @@ class FireDataset(utils.Dataset):
                 pass
             if subset == "train":
                 image_ids = list(set(image_ids)-set(VAL_IMAGE_IDS))
-
+        # print("imgae_id=", image_id)
+        print("image_ids=", image_ids)
+        print("len=", len(image_ids))
         # Add images
+        # image_id = 0
         for image_id in image_ids:
+            global imgae_id
+        # for image_id in range(len(image_ids)):
             self.add_image(
                 "fire",
                 image_id=image_id,
                 path=os.path.join(dataset_dir, "{}.png".format(image_id)))
+            print("image_id=", image_id)
 
 
     def load_mask(self, image_id):
