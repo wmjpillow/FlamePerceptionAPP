@@ -182,18 +182,22 @@ class FireDataset(utils.Dataset):
         # else: use the data from the specified sub-directory
         assert subset in ["train", "val", "stage1_train", "stage1_test", "stage2_test"]
         subset_dir = "stage1_train" if subset in ["train","val"] else subset
+        print("subset_dir=", subset_dir)
+        print("subset=", subset)
         dataset_dir = os.path.join(dataset_dir, subset_dir)
-        # image_ids = VAL_IMAGE_IDS
+        image_ids = VAL_IMAGE_IDS
         if subset == "val":
             image_ids = VAL_IMAGE_IDS
         else:
             # Get image ids from directory names
             try:
               image_ids = next(os.walk(dataset_dir))[1]
+              print("image_ids=", image_ids)
             except StopIteration:
                 pass
             if subset == "train":
                 image_ids = list(set(image_ids)-set(VAL_IMAGE_IDS))
+
         # print("imgae_id=", image_id)
         print("image_ids=", image_ids)
         print("len=", len(image_ids))
