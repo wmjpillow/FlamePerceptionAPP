@@ -47,10 +47,10 @@ sys.path.append(ROOT_DIR)  # To find local version of the library
 # from config import Config
 # import utils
 # import visualize
-from mrcnn.config import Config
-from mrcnn import utils
+from config import Config
+import utils
 import model as modellib
-from mrcnn import visualize
+import visualize
 
 
 # Path to trained weights file
