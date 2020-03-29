@@ -49,7 +49,7 @@ sys.path.append(ROOT_DIR)  # To find local version of the library
 # import visualize
 from mrcnn.config import Config
 from mrcnn import utils
-from mrcnn import model as modellib
+import model as modellib
 from mrcnn import visualize
 
 
