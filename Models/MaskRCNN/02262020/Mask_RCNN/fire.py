@@ -210,6 +210,7 @@ class FireDataset(utils.Dataset):
                 "fire",
                 image_id=image_id,
                 path=os.path.join(dataset_dir, "{}.png".format(image_id)))
+            print("path=", os.path.join(dataset_dir, "{}.png".format(image_id)))
             print("image_id=", image_id)
 
 
