@@ -261,11 +261,17 @@ def train(model, dataset_dir, subset):
     dataset_train= FireDataset()
     dataset_train.load_fire(dataset_dir,subset)
     dataset_train.prepare()
+    print("train__dataset_train", dataset_train)
+    print("train__dataset_dir", dataset_dir)
+    print("train__subset", subset)
 
     # Validation dataset
     dataset_val = FireDataset()
+    print("val__dataset_train", dataset_val)
     dataset_val.load_fire(dataset_dir, "val")
+    print("val__dataset_dir", dataset_dir)
     dataset_val.prepare()
+
 
     # Image augmentation
     augmentation = iaa.SomeOf((0,2),[
