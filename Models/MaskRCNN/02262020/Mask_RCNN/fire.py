@@ -46,11 +46,11 @@ ROOT_DIR = os.path.abspath("/Users/wangmeijie/ALLImportantProjects/FlameDetectio
 sys.path.append(ROOT_DIR)  # To find local version of the library
 # from config import Config
 # import utils
+# import model as modellib
 # import visualize
-from config import Config
-import utils
-import model as modellib
-import visualize
+from mrcnn.config import Config
+from mrcnn import model as modellib, utils
+
 
 
 # Path to trained weights file
