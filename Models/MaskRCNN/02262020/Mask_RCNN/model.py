@@ -1693,7 +1693,7 @@ def data_generator(dataset, config, shuffle=True, augment=False, augmentation=No
     while True:
         try:
             # Increment index to pick next image. Shuffle if at the start of an epoch.
-            image_index = (image_index + 1) % len(image_ids)+2000
+            image_index = (image_index + 1) % len(image_ids)
             print("model_image_ids=", image_ids)
             print("model_len", len(image_ids))
             if shuffle and image_index == 0:

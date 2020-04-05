@@ -40,7 +40,7 @@ import skimage.io
 from imgaug import augmenters as iaa
 
 # Root directory of the project
-ROOT_DIR = os.path.abspath("/Users/wangmeijie/ALLImportantProjects/FlameDetectionAPP/Models/MaskRCNN/02\:26\:2020/Mask_RCNN")
+ROOT_DIR = os.path.abspath("/Users/wangmeijie/ALLImportantProjects/FlameDetectionAPP/Models/MaskRCNN/02262020/Mask_RCNN")
 
 # Import Mask RCNN
 sys.path.append(ROOT_DIR)  # To find local version of the library
