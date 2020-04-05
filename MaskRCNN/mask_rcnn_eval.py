@@ -26,10 +26,10 @@ deprecation._PRINT_DEPRECATION_WARNINGS = False
 # %matplotlib inline
 # get_ipython().magic('matplotlib inline')
 # Path to frozen detection graph. This is the actual model that is used for the object detection.
-PATH_TO_FROZEN_GRAPH = '/Users/wangmeijie/PycharmProjects/Flame+MaskRCNN/IG/frozen_inference_graph.pb'
+PATH_TO_FROZEN_GRAPH = '/Users/wangmeijie/ALLImportantProjects/Flame+MaskRCNN/IG/frozen_inference_graph.pb'
 
 # List of the strings that is used to add correct label for each box.
-PATH_TO_LABELS = '/Users/wangmeijie/PycharmProjects/Flame+MaskRCNN/data/label.pbtxt'
+PATH_TO_LABELS = '/Users/wangmeijie/ALLImportantProjects/Flame+MaskRCNN/dataset/label.pbtxt'
 
 #Number of classes
 NUM_CLASSES = 1
@@ -56,7 +56,7 @@ def load_image_into_numpy_array(image):
       (im_height, im_width, 3)).astype(np.uint8)
 
 # If you want to test the code with your images, just add path to the images to the TEST_IMAGE_PATHS.
-PATH_TO_TEST_IMAGES_DIR = '/Users/wangmeijie/PycharmProjects/Flame+MaskRCNN/data/testImages'
+PATH_TO_TEST_IMAGES_DIR = '/Users/wangmeijie/ALLImportantProjects/Flame+MaskRCNN/dataset/testImages2'
 TEST_IMAGE_PATHS = [ os.path.join(PATH_TO_TEST_IMAGES_DIR, 'frame{}.jpg'.format(i)) for i in range(1,2) ]
 
 # Size, in inches, of the output images.
@@ -142,6 +142,6 @@ for image_path in TEST_IMAGE_PATHS:
   # ax.grid(False)
   plt.imshow(test)
   # plt.show()
-  plt.savefig('/Users/wangmeijie/PycharmProjects/Flame+MaskRCNN/data/image_np')
+  plt.savefig('/Users/wangmeijie/ALLImportantProjects/Flame+MaskRCNN/dataset/image_test_1')
 
 
