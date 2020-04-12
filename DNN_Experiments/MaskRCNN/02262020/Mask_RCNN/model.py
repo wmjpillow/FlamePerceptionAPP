@@ -1693,6 +1693,10 @@ def data_generator(dataset, config, shuffle=True, augment=False, augmentation=No
     while True:
         try:
             # Increment index to pick next image. Shuffle if at the start of an epoch.
+<<<<<<< HEAD:DNN_Experiments/MaskRCNN/02262020/Mask_RCNN/model.py
+=======
+            image_index = (image_index + 1) % len(image_ids)+2000
+>>>>>>> parent of d879ed6... tried tensoflow API:Models/MaskRCNN/02262020/Mask_RCNN/model.py
             print("model_image_ids=", image_ids)
             print("model_len", len(image_ids))
             image_index = (image_index + 1) % len(image_ids)
