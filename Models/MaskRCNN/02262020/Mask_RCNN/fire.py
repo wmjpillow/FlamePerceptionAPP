@@ -199,8 +199,8 @@ class FireDataset(utils.Dataset):
                 image_ids = list(set(image_ids)-set(VAL_IMAGE_IDS))
 
         # print("imgae_id=", image_id)
-        print("image_ids=", image_ids)
-        print("len=", len(image_ids))
+        # print("image_ids=", image_ids)
+        # print("len=", len(image_ids))
         # Add images
         # image_id = 0
         for image_id in image_ids:
@@ -210,8 +210,8 @@ class FireDataset(utils.Dataset):
                 "fire",
                 image_id=image_id,
                 path=os.path.join(dataset_dir, "{}.png".format(image_id)))
-            print("path=", os.path.join(dataset_dir, "{}.png".format(image_id)))
-            print("image_id=", image_id)
+            # print("path=", os.path.join(dataset_dir, "{}.png".format(image_id)))
+            # print("image_id=", image_id)
 
 
     def load_mask(self, image_id):
