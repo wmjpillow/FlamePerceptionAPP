@@ -11,7 +11,8 @@ protoc object_detection/protos/*.proto --python_out=.
 
 
 
-Python3 object_detection/dataset_tools/create_mask_rcnn_tf_record.py --data_dir_path=/Users/wangmeijie/ALLImportantProjects/Flame+MaskRCNN/dataset --annotations_dir=/Users/wangmeijie/ALLImportantProjects/Flame+MaskRCNN/dataset/Annotations --masks_dir=masks --xmls_dir=xmls --image_dir=/Users/wangmeijie/ALLImportantProjects/Flame+MaskRCNN/dataset/JPEGImages --label_map_path=/Users/wangmeijie/ALLImportantProjects/Flame+MaskRCNN/dataset/label.pbtxt --tfrecord_filename=train --use_xmls=False --num_shrads=1
+
+Python3 object_detection/dataset_tools/create_mask_rcnn_tf_record.py --data_dir_path=/Users/wangmeijie/ALLImportantProjects/FlameDetectionAPP/DNN_Experiments/TensorflowObjectDetection/dataset --annotations_dir=/Users/wangmeijie/ALLImportantProjects/FlameDetectionAPP/DNN_Experiments/TensorflowObjectDetection/dataset/Annotations --masks_dir=masks --xmls_dir=xmls --image_dir=/Users/wangmeijie/ALLImportantProjects/FlameDetectionAPP/DNN_Experiments/TensorflowObjectDetection/dataset/JPEGImages --label_map_path=//Users/wangmeijie/ALLImportantProjects/FlameDetectionAPP/DNN_Experiments/TensorflowObjectDetection/dataset/label.pbtxt --tfrecord_filename=train --use_xmls=False --num_shrads=1
 
 
 
