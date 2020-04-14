@@ -8,6 +8,7 @@ import logging
 from logging import Formatter, FileHandler
 from forms import *
 import os
+import FlameBoundingbox
 
 #----------------------------------------------------------------------------#
 # App Config.
@@ -40,6 +41,10 @@ def login_required(test):
 # Controllers.
 #----------------------------------------------------------------------------#
 
+# @app.route('/run-scripts')
+# def run_script():
+#     result = subprocess.check_output("python FlameBoundingbox.py", shell=True)
+#     return result
 
 @app.route('/')
 def home():
@@ -98,6 +103,7 @@ if not app.debug:
 # Default port:
 if __name__ == '__main__':
     app.run()
+    FlameBoundingbox.BoundingBox()
 
 # Or specify port manually:
 '''
