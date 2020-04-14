@@ -14,6 +14,8 @@ Visualization:
 
 --------------------------------------------------
 TO DO:
+- Interaction: 
+upload the video -->Display processed video with flame bounding box + Bounding box data print on front end. 
 - Refine the model (pre-processing image+ train in MaskRCNN)
 - Calculate flame shape in cm instead of pixels in image. 
 - Filter the raw data of bad recording.

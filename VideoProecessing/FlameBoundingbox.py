@@ -10,11 +10,11 @@ import matplotlib.image as mpimg
 # get_ipython().magic(u'matplotlib inline')
 # REFERENCE: https://github.com/benjamincastillo2020/FireDetectionCode
 
-cap1 = cv2.VideoCapture('/Users/wangmeijie/ALLImportantProjects/FlameDetectionAPP/WebApplication/static/Videos/4cm_test.mp4')
+cap1 = cv2.VideoCapture('../WebApplication/static/Videos/4cm_test.mp4')
 fgbg = cv2.createBackgroundSubtractorMOG2()
 # serport = serial.Serial("COM1", 115200)
 
-sys.stdout = open("height.txt", "w")
+# sys.stdout = open("height.txt", "w")
 index = 0
 while (1):
     ret, frame = cap1.read()  # reading the image
@@ -42,4 +42,4 @@ while (1):
         break
 cap1.release()
 cv2.destroyAllWindows()
-sys.stdout.close()
+# sys.stdout.close()
