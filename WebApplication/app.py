@@ -2,13 +2,14 @@
 # Imports
 #----------------------------------------------------------------------------#
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 # from flask.ext.sqlalchemy import SQLAlchemy
 import logging
 from logging import Formatter, FileHandler
 from forms import *
 import os
 import FlameBoundingbox
+from werkzeug import secure_filename
 
 #----------------------------------------------------------------------------#
 # App Config.
@@ -41,14 +42,24 @@ def login_required(test):
 # Controllers.
 #----------------------------------------------------------------------------#
 
-# @app.route('/run-scripts')
-# def run_script():
-#     result = subprocess.check_output("python FlameBoundingbox.py", shell=True)
-#     return result
+# Flask Save Uploads on the server REFEERENCE: 
+# https://riptutorial.com/flask/example/19418/save-uploads-on-the-server
 
-@app.route('/')
-def home():
-    return render_template('pages/placeholder.home.html')
+# Create a directory in a known location to save files to.
+uploads_dir = os.path.join(app.instance_path, 'uploads')
+os.makedirs(uploads_dir)
+
+@app.route('/upload', methods=['GET','POST'])
+def upload():
+    if request.method == 'POST':
+        # save the single "profile" file
+        profile = request.files['profile']
+        profile.save(os.path.join(uploads_dir, secure_filename(profile.filename)))
+        # save each "charts" file 
+        for file in requests.files.gelist('charts'):
+           file.save(os.path.join(uploads_dir, secure_filename(file.name)))
+        return redirect(url_for('upload'))
+    return render_template('pages/upload.html')
 
 
 @app.route('/about')
@@ -102,8 +113,9 @@ if not app.debug:
 
 # Default port:
 if __name__ == '__main__':
+    # FlameBoundingbox.BoundingBox()
     app.run()
-    FlameBoundingbox.BoundingBox()
+
 
 # Or specify port manually:
 '''

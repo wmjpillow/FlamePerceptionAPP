@@ -31,6 +31,9 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -208,7 +211,9 @@
       <workItem from="1585672523985" duration="1364000" />
       <workItem from="1585839845897" duration="39000" />
       <workItem from="1586737351183" duration="718000" />
-      <workItem from="1586836025315" duration="4799000" />
+      <workItem from="1586836025315" duration="5538000" />
+      <workItem from="1586870244303" duration="945000" />
+      <workItem from="1586931548609" duration="500000" />
     </task>
     <servers />
   </component>
@@ -266,12 +271,13 @@
     <state x="200" y="232" key="SettingsEditor/0.23.1680.952@0.23.1680.952" timestamp="1585518629897" />
     <state x="200" y="233" key="SettingsEditor/0.23.1680.956@0.23.1680.956" timestamp="1579298391535" />
     <state x="200" y="233" key="SettingsEditor/0.23.1680.958@0.23.1680.958" timestamp="1579298011489" />
-    <state x="657" y="365" key="com.intellij.ide.util.TipDialog" timestamp="1586836025529">
+    <state x="657" y="365" key="com.intellij.ide.util.TipDialog" timestamp="1586931549007">
       <screen x="0" y="23" width="1680" height="944" />
     </state>
     <state x="657" y="359" key="com.intellij.ide.util.TipDialog/0.23.1680.934@0.23.1680.934" timestamp="1585631771550" />
+    <state x="657" y="362" key="com.intellij.ide.util.TipDialog/0.23.1680.937@0.23.1680.937" timestamp="1586870244374" />
     <state x="657" y="362" key="com.intellij.ide.util.TipDialog/0.23.1680.941@0.23.1680.941" timestamp="1585839879505" />
-    <state x="657" y="365" key="com.intellij.ide.util.TipDialog/0.23.1680.944@0.23.1680.944" timestamp="1586836025529" />
+    <state x="657" y="365" key="com.intellij.ide.util.TipDialog/0.23.1680.944@0.23.1680.944" timestamp="1586931549007" />
     <state x="657" y="365" key="com.intellij.ide.util.TipDialog/0.23.1680.945@0.23.1680.945" timestamp="1579611102765" />
     <state x="657" y="364" key="com.intellij.ide.util.TipDialog/0.23.1680.947@0.23.1680.947" timestamp="1585575048322" />
     <state x="657" y="367" key="com.intellij.ide.util.TipDialog/0.23.1680.949@0.23.1680.949" timestamp="1582726952800" />

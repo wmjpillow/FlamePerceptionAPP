@@ -9,6 +9,9 @@ import matplotlib.image as mpimg
 
 # get_ipython().magic(u'matplotlib inline')
 # REFERENCE: https://github.com/benjamincastillo2020/FireDetectionCode
+# Passing a cv2 frame from view to Flask:
+# https://stackoverflow.com/questions/46373163/passing-a-cv2-frame-from-view-to-template
+
 
 def BoundingBox():
 
