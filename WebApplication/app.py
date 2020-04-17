@@ -44,23 +44,38 @@ def login_required(test):
 
 # Flask Save Uploads on the server REFEERENCE: 
 # https://riptutorial.com/flask/example/19418/save-uploads-on-the-server
+# https://stackoverflow.com/questions/19898283/folder-and-files-upload-with-flask
 
 # Create a directory in a known location to save files to.
+
 uploads_dir = os.path.join(app.instance_path, 'uploads')
-os.makedirs(uploads_dir)
+os.makedirs(uploads_dir, exist_ok=True)
 
 @app.route('/upload', methods=['GET','POST'])
 def upload():
     if request.method == 'POST':
         # save the single "profile" file
-        profile = request.files['profile']
+        profile = request.files['profile[]']
         profile.save(os.path.join(uploads_dir, secure_filename(profile.filename)))
-        # save each "charts" file 
-        for file in requests.files.gelist('charts'):
-           file.save(os.path.join(uploads_dir, secure_filename(file.name)))
+        # save each "charts" file
+        # for file in request.files.gelist('charts'):
+        #    file.save(os.path.join(uploads_dir, secure_filename(file.name)))
         return redirect(url_for('upload'))
     return render_template('pages/upload.html')
+# def upload():
+#     if request.method == 'POST':
+#         file = request.files['file[]']
+#         if file:
+#             filename = secure_filename(file.filename)
+#             file.save(os.path.join(os.path.join(uploads_dir, filename ) )
+#             return upload()
+#     return render_template('pages/upload.html')
 
+
+
+@app.route('/')
+def home():
+    return render_template('pages/placeholder.home.html')
 
 @app.route('/about')
 def about():
