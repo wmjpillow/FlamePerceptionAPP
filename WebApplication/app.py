@@ -61,9 +61,17 @@ def upload():
 
 @app.route('/BoundingBox', methods=['GET','POST'])
 def BoundingBox():
-    if request.method == 'POST':
-        FlameBoundingbox.BoundingBox()
+    # if request.method == 'POST':
+    #     return FlameBoundingbox.BoundingBox()
     return render_template('pages/BoundingBox.html')
+
+# https://stackoverflow.com/questions/42601478/flask-calling-python-function-on-button-onclick-event
+@app.route('/Bounding')
+def Bounding():
+    # if request.method == 'POST':
+    FlameBoundingbox.BoundingBox()
+    # print("boundingbox")
+    return ("nothing")
 
 @app.route('/')
 def home():
