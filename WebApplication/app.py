@@ -10,6 +10,7 @@ from forms import *
 import os
 import FlameBoundingbox
 from werkzeug import secure_filename
+import FireVideoProcessing
 
 #----------------------------------------------------------------------------#
 # App Config.
@@ -68,9 +69,8 @@ def BoundingBox():
 # https://stackoverflow.com/questions/42601478/flask-calling-python-function-on-button-onclick-event
 @app.route('/Bounding')
 def Bounding():
-    # if request.method == 'POST':
-    FlameBoundingbox.BoundingBox()
-    # print("boundingbox")
+    # FlameBoundingbox.BoundingBox()
+    FireVideoProcessing.FireVideoProcess()
     return ("nothing")
 
 @app.route('/')
