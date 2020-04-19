@@ -20,7 +20,7 @@ def BoundingBox():
   fgbg = cv2.createBackgroundSubtractorMOG2()
   # serport = serial.Serial("COM1", 115200)
 
-  # sys.stdout = open("height.txt", "w")
+  sys.stdout = open("./static/data/height.txt", "w")
   index = 0
   while (1):
     ret, frame = cap1.read()  # reading the image
@@ -38,8 +38,8 @@ def BoundingBox():
             #            serport.write(string_)
             index = index+1
             print(index, ',', str(h))
-            cv2.putText(frame, 'fire', (x, y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
-            cv2.imshow('fire detection', frame)
+            # cv2.putText(frame, 'fire', (x, y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
+            # cv2.imshow('fire detection', frame)
         # else:
         #     print("none")
             # break
@@ -48,7 +48,7 @@ def BoundingBox():
         break
   cap1.release()
   cv2.destroyAllWindows()
-  # sys.stdout.close()
+  sys.stdout.close()
 
 if __name__ == '__main__':
     BoundingBox()
