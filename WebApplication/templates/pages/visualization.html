@@ -1,5 +1,5 @@
 {% extends 'layouts/main.html' %}
-{% block title %}About{% endblock %}
+{% block title %}Visualization{% endblock %}
 {% block content %}
 
 <div class="page-header">
@@ -39,7 +39,7 @@
             "translate(" + margin.left + "," + margin.top + ")");
   
   //Read the data
-  d3.csv("/static/data/Data_Other1.csv",function(data) {
+  d3.csv("/static/data/4cm_test.csv",function(data) {
       console.log(data);
       console.log(d3.extent(data, function(d) { return +d.I; }));
       console.log(d3.extent(data, function(d) { return +d.S; }));

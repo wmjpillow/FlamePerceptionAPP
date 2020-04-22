@@ -48,14 +48,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">Project name</a>
+          <a class="navbar-brand" href="/">FlamePerceptionAPP</a>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li {% if request.endpoint == 'home' %} class="active" {% endif %}><a href="{{ url_for('home') }}">Home</a></li>
-            <li {% if request.endpoint == 'about' %} class="active" {% endif %}><a href="{{ url_for('about') }}">About</a></li>
             <li {% if request.endpoint == 'upload' %} class="active" {% endif %}><a href="{{ url_for('upload') }}">Upload</a></li>
             <li {% if request.endpoint == 'BoundingBox' %} class="active" {% endif %}><a href="{{ url_for('BoundingBox') }}">BoundingBox</a></li>
+            <li {% if request.endpoint == 'Visualization' %} class="active" {% endif %}><a href="{{ url_for('Visualization') }}">Visualization</a></li>
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
               <ul class="dropdown-menu">

@@ -16,7 +16,7 @@ def home():
 
 @blueprint.route('/about')
 def about():
-    return render_template('pages/placeholder.about.html')
+    return render_template('pages/visualization.html')
 
 
 @blueprint.route('/login')

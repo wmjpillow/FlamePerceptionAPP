@@ -77,9 +77,9 @@ def Bounding():
 def home():
     return render_template('pages/placeholder.home.html')
 
-@app.route('/about')
-def about():
-    return render_template('pages/placeholder.about.html')
+@app.route('/Visualization')
+def Visualization():
+    return render_template('pages/visualization.html')
 
 
 @app.route('/login')
