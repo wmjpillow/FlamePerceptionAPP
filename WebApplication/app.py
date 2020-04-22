@@ -2,7 +2,7 @@
 # Imports
 #----------------------------------------------------------------------------#
 
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, send_file
 # from flask.ext.sqlalchemy import SQLAlchemy
 import logging
 from logging import Formatter, FileHandler
@@ -81,6 +81,11 @@ def home():
 def Visualization():
     return render_template('pages/visualization.html')
 
+# https://stackoverflow.com/questions/24577349/flask-download-a-file
+@app.route('/download')
+def download():
+    path = "./static/data/4cm_test.csv"
+    return send_file(path, as_attachment=True)
 
 @app.route('/login')
 def login():
