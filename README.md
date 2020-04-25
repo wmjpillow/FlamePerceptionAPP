@@ -8,8 +8,8 @@ It will include both web Application and mobile Application.
 The web Application is developed with flask framework and the mobile application is developed with ionic framework.
 
 --------------------------------------------------
-Visualization:
-![GitHub Logo](/img/video1.png)
+Current Application Interface:
+![GitHub Logo](/UI.png)
 
 
 --------------------------------------------------
