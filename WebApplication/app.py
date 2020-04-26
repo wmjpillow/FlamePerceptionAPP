@@ -2,7 +2,7 @@
 # Imports
 #----------------------------------------------------------------------------#
 
-from flask import Flask, render_template, request, redirect, url_for, send_file
+from flask import Flask, render_template, request, redirect, url_for, send_file, Response
 # from flask.ext.sqlalchemy import SQLAlchemy
 import logging
 from logging import Formatter, FileHandler
@@ -60,11 +60,14 @@ def upload():
         return redirect(url_for('upload'))
     return render_template('pages/upload.html')
 
+# https://stackoverflow.com/questions/60509538/how-do-i-stream-python-opencv-output-to-html-canvas
 @app.route('/BoundingBox', methods=['GET','POST'])
 def BoundingBox():
     # if request.method == 'POST':
     #     return FlameBoundingbox.BoundingBox()
-    return render_template('pages/BoundingBox.html')
+    # return render_template('pages/BoundingBox.html')
+    return Response(FlameBoundingbox.BoundingBox(),
+                    mimetype='multipart/x-mixed-replace; boundary=frame')
 
 # https://stackoverflow.com/questions/42601478/flask-calling-python-function-on-button-onclick-event
 @app.route('/Bounding')

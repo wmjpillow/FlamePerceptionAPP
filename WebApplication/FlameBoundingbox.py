@@ -12,6 +12,8 @@ from werkzeug import secure_filename
 # REFERENCE: https://github.com/benjamincastillo2020/FireDetectionCode
 # Passing a cv2 frame from view to Flask:
 # https://stackoverflow.com/questions/46373163/passing-a-cv2-frame-from-view-to-template
+# Video Streaming with Flask:
+# https://blog.miguelgrinberg.com/post/video-streaming-with-flask
 
 
 def BoundingBox():
@@ -40,6 +42,9 @@ def BoundingBox():
             print(index, ',', str(h))
             # cv2.putText(frame, 'fire', (x, y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
             # cv2.imshow('fire detection', frame)
+            cv2.imwrite('t.jpg', frame)
+            yield (b'--frame\r\n'
+                   b'Content-Type: image/jpeg\r\n\r\n' + open('t.jpg', 'rb').read() + b'\r\n')
         # else:
         #     print("none")
             # break
