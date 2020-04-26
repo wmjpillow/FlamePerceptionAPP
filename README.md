@@ -9,7 +9,7 @@ The web Application is developed with flask framework and the mobile application
 
 --------------------------------------------------
 Current Application Interface:
-![GitHub Logo](/UI.png)
+![GitHub Logo](/Flame.gif)
 
 
 --------------------------------------------------
