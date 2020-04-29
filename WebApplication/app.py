@@ -64,7 +64,8 @@ def upload():
 @app.route('/BoundingBox', methods=['GET','POST'])
 def BoundingBox():
     # if request.method == 'POST':
-    #     return FlameBoundingbox.BoundingBox()
+    #       Response(FlameBoundingbox.BoundingBox(), mimetype='multipart/x-mixed-replace; boundary=frame')
+    #       print('play')
     # return render_template('pages/BoundingBox.html')
     return Response(FlameBoundingbox.BoundingBox(),
                     mimetype='multipart/x-mixed-replace; boundary=frame')

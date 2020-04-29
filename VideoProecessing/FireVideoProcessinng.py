@@ -13,7 +13,7 @@ import math
 # get_ipython().magic(u'matplotlib inline')
 # REFERENCE: https://github.com/benjamincastillo2020/FireDetectionCode
 # https://stackoverflow.com/questions/22704936/reading-every-nth-frame-from-videocapture-in-opencv
-cap1 = cv2.VideoCapture('/Users/wangmeijie/ALLImportantProjects/FlameDetectionAPP/WebApplication/static/Videos/Other1_test.mp4')
+cap1 = cv2.VideoCapture('/Users/wangmeijie/ALLImportantProjects/FlameDetectionAPP/WebApplication/static/Videos/4cm_test.mp4')
 fgbg = cv2.createBackgroundSubtractorMOG2()
 count = 0
 
