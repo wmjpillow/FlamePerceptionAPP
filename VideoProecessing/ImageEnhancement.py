@@ -62,11 +62,15 @@ n_showimg = len(show_image)
 
 
 #Image Showing Sequencing
-for k in range (0,n_showimg):
-    if resize == False:
-        cv2.namedWindow(show_imagename[k],cv2.WINDOW_NORMAL)
-        cv2.resizeWindow(show_imagename[k],rwidth,rheight)
-    cv2.imshow(show_imagename[k],show_image[k])
+# for k in range (0,n_showimg):
+#     if resize == False:
+#         cv2.namedWindow(show_imagename[k],cv2.WINDOW_NORMAL)
+#         cv2.resizeWindow(show_imagename[k],rwidth,rheight)
+#     cv2.imshow(show_imagename[k],show_image[k])
+# print(show_image[2])
+# print([gs_neg])
+# cv2.imshow('ng', show_image[4])
+cv2.imshow('ng',gs_neg)
 
 # SHOWING IMAGE ALGORITHMS ---------------------------------------------------------------------- END
 

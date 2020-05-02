@@ -47,6 +47,7 @@ with open("Data_Other1.csv", "w", newline='') as csvFile:
                if index<=20:
                  SumCount=SumCount+count
                  SumProportion=SumProportion+proportion
+            cv2.imshow('ng',gs_neg)
 
         # Bounding Box
             sub_image = fgbg.apply(frame)  # background subtraction
