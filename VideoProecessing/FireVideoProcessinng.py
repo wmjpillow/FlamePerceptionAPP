@@ -17,15 +17,8 @@ cap1 = cv2.VideoCapture('/Users/wangmeijie/ALLImportantProjects/FlameDetectionAP
 fgbg = cv2.createBackgroundSubtractorMOG2()
 count = 0
 
-with open("Data_Other1.csv", "w", newline='') as csvFile:
-    writer = csv.writer(csvFile)
-    writer.writerow(['I', 'H', 'S', 'P'])
-    sys.stdout = csvFile
-# sys.stdout = open("Data.csv", "w")
-# names = ['I', 'H', 'S', 'P']
-# print('I', ',', 'H', ',', 'S', ',', 'P')
-    ID = 0
-    while 1:
+ID = 0
+while 1:
         ret, frame = cap1.read()  # reading the image
         if count%10==0:
         # flame shape area
@@ -44,6 +37,7 @@ with open("Data_Other1.csv", "w", newline='') as csvFile:
             for index, colour in enumerate(colours):
                count = counts[index]
                proportion = (100 * count) / (h * w)
+               print(f"   Colour: {colour}, count: {count}, proportion: {proportion:.2f}%")
                if index<=20:
                  SumCount=SumCount+count
                  SumProportion=SumProportion+proportion
@@ -62,7 +56,7 @@ with open("Data_Other1.csv", "w", newline='') as csvFile:
                   cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
                   string_ = "fire" + str(x) + ' ' + str(y) + ' ' + str(w) + ' ' + str(h)
                   ID = ID+1
-                  print(ID, ',', str(h), ',', SumCount, ',', SumProportion)
+                  # print(ID, ',', str(h), ',', SumCount, ',', SumProportion)
                   cv2.putText(frame, 'fire', (x, y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
                   # cv2.imshow('fire detection', frame)
             cv2.waitKey(300)
@@ -71,6 +65,5 @@ with open("Data_Other1.csv", "w", newline='') as csvFile:
                 break
         count+=1
 
-    cap1.release()
-    cv2.destroyAllWindows()
-    sys.stdout.close()
+cap1.release()
+cv2.destroyAllWindows()
