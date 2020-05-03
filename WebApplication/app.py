@@ -11,6 +11,7 @@ import os
 import FlameBoundingbox
 from werkzeug import secure_filename
 import FireVideoProcessing
+import FlameShape
 
 #----------------------------------------------------------------------------#
 # App Config.
@@ -68,6 +69,11 @@ def BoundingBox():
     #       print('play')
     # return render_template('pages/BoundingBox.html')
     return Response(FlameBoundingbox.BoundingBox(),
+                    mimetype='multipart/x-mixed-replace; boundary=frame')
+
+@app.route('/FlameShape', methods=['GET','POST'])
+def FlameShape():
+    return Response(FlameShape.shape(),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
 # https://stackoverflow.com/questions/42601478/flask-calling-python-function-on-button-onclick-event
