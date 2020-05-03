@@ -72,7 +72,7 @@ def BoundingBox():
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
 @app.route('/FlameShape', methods=['GET','POST'])
-def FlameShape():
+def CallFlameShape():
     return Response(FlameShape.shape(),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 

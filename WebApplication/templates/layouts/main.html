@@ -55,7 +55,7 @@
             <li {% if request.endpoint == 'home' %} class="active" {% endif %}><a href="{{ url_for('home') }}">Home</a></li>
             <li {% if request.endpoint == 'upload' %} class="active" {% endif %}><a href="{{ url_for('upload') }}">Upload</a></li>
             <li {% if request.endpoint == 'BoundingBox' %} class="active" {% endif %}><a href="{{ url_for('BoundingBox') }}">BoundingBox</a></li>
-            <li {% if request.endpoint == 'FlameShape' %} class="active" {% endif %}><a href="{{ url_for('FlameShape') }}">FlameShape</a></li>
+            <li {% if request.endpoint == 'CallFlameShape' %} class="active" {% endif %}><a href="{{ url_for('CallFlameShape') }}">FlameShape</a></li>
             <li {% if request.endpoint == 'Visualization' %} class="active" {% endif %}><a href="{{ url_for('Visualization') }}">Visualization</a></li>
             <li {% if request.endpoint == 'download' %} class="active" {% endif %}><a href="{{ url_for('download') }}">Download</a></li>
             <li class="dropdown">

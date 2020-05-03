@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c5260bce-8f4a-4690-8628-ee3b32705958" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VideoProecessing/FireVideoProcessinng.py" beforeDir="false" afterPath="$PROJECT_DIR$/VideoProecessing/FireVideoProcessinng.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,8 +12,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -229,7 +228,7 @@
       <workItem from="1587968967367" duration="909000" />
       <workItem from="1588137950614" duration="582000" />
       <workItem from="1588397754644" duration="3006000" />
-      <workItem from="1588457545092" duration="12838000" />
+      <workItem from="1588457545092" duration="14277000" />
     </task>
     <servers />
   </component>

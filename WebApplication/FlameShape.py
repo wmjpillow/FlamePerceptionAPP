@@ -80,7 +80,7 @@ def shape():
             imnp[np.where((imnp == [58, 58, 58]).all(axis=2))] = [255, 255, 255]
             imnp[np.where((imnp == [59, 59, 59]).all(axis=2))] = [255, 255, 255]
 
-            print(imnp)
+            # print(imnp)
             h, w = imnp.shape[:2]
             colours, counts = np.unique(imnp.reshape(-1,3), axis=0, return_counts=1)
             SumCount=0
@@ -93,30 +93,10 @@ def shape():
                if index<=15:
                  SumCount=SumCount+count
                  SumProportion=SumProportion+proportion
-            # print(colours)
-            cv2.imshow('ng',imnp)
-            # print(imnp)
-
-        # # Bounding Box
-        #     sub_image = fgbg.apply(frame)  # background subtraction
-        #     ret, thresh = cv2.threshold(sub_image, 127, 255, 0)  # thresholding
-        #     contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)  # finding the contours
-        #     areas = [cv2.contourArea(c) for c in contours]
-        #     if len(areas) > 1:
-        #        max_index = np.argmax(areas)
-        #        cnt = contours[max_index]
-        #        if areas[max_index] > 70:
-        #           x, y, w, h = cv2.boundingRect(cnt)
-        #           cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
-        #           string_ = "fire" + str(x) + ' ' + str(y) + ' ' + str(w) + ' ' + str(h)
-        #           ID = ID+1
-        #           # print(ID, ',', str(h), ',', SumCount, ',', SumProportion)
-        #           cv2.putText(frame, 'fire', (x, y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
-        #           # cv2.imshow('fire detection', frame)
-        #     cv2.waitKey(300)
-        #     k = cv2.waitKey(300) & 0xFF == ord('q')
-        #     if k == 27:
-        #         break
+            # cv2.imshow('ng',imnp)
+            cv2.imwrite('t.jpg', imnp)
+            yield (b'--frame\r\n'
+               b'Content-Type: image/jpeg\r\n\r\n' + open('t.jpg', 'rb').read() + b'\r\n')
         count+=1
 
    cap1.release()
