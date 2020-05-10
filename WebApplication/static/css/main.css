@@ -10,21 +10,22 @@
  ****************************************************************************/
 html {
   overflow-y: scroll;
+  background:  #292929;
 }
 a {
   cursor: pointer;
 }
 ::selection {
   background: #555;
-  color: #FFF;
+  color: #292929;
 }
 ::-moz-selection {
   background: #555;
-  color: #FFF;
+  color: #292929;
 }
 ::-webkit-selection {
   background: #555;
-  color: #FFF;
+  color: #292929;
 }
 /* Main elements end */
 
