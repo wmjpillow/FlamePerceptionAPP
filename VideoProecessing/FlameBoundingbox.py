@@ -10,7 +10,7 @@ import matplotlib.image as mpimg
 # get_ipython().magic(u'matplotlib inline')
 # REFERENCE: https://github.com/benjamincastillo2020/FireDetectionCode
 
-cap1 = cv2.VideoCapture('../WebApplication/static/Videos/4cm_test.mp4')
+cap1 = cv2.VideoCapture('../Videos/LabFire_1.mp4')
 fgbg = cv2.createBackgroundSubtractorMOG2()
 # serport = serial.Serial("COM1", 115200)
 
