@@ -13,6 +13,7 @@ import FlameBoundingbox
 from werkzeug import secure_filename
 import FireVideoProcessing
 import FlameShape
+from pathlib import Path
 
 #----------------------------------------------------------------------------#
 # App Config.
@@ -51,6 +52,9 @@ def login_required(test):
 
 uploads_dir = "./static/Videos"
 os.makedirs(uploads_dir, exist_ok=True)
+# Share variables in different functions
+# https://stackoverflow.com/questions/41636867/how-to-share-variable-between-functions-in-python
+parseFile = uploads_dir
 
 @app.route('/upload', methods=['GET','POST'])
 def upload():
@@ -58,30 +62,34 @@ def upload():
         # save the single "profile" file
         profile = request.files['profile[]']
         profile.save(os.path.join(uploads_dir, secure_filename(profile.filename)))
-        print(secure_filename(profile.filename))
-        return redirect(url_for('upload'))
+        global parseFile
+        parseFile = os.path.join(uploads_dir, secure_filename(profile.filename))
+        print(parseFile)
+        # return redirect(url_for('upload'))
+        # return parseFile
     return render_template('pages/upload.html')
+
+@app.route('/Video', methods=['GET','POST'])
+def Video():
+    return render_template('pages/video.html', passFile= os.path.basename(Path(parseFile)).split('.')[0])
 
 # https://stackoverflow.com/questions/60509538/how-do-i-stream-python-opencv-output-to-html-canvas
 @app.route('/BoundingBox', methods=['GET','POST'])
 def BoundingBox():
-    # if request.method == 'POST':
-    #       Response(FlameBoundingbox.BoundingBox(), mimetype='multipart/x-mixed-replace; boundary=frame')
-    #       print('play')
-    # return render_template('pages/BoundingBox.html')
-    return Response(FlameBoundingbox.BoundingBox(),
+    # print(parseFile)
+    return Response(FlameBoundingbox.BoundingBox(parseFile),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
 @app.route('/FlameShape', methods=['GET','POST'])
 def CallFlameShape():
-    return Response(FlameShape.shape(),
+    return Response(FlameShape.shape(parseFile),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
 # https://stackoverflow.com/questions/42601478/flask-calling-python-function-on-button-onclick-event
 @app.route('/Bounding')
 def Bounding():
     # FlameBoundingbox.BoundingBox()
-    FireVideoProcessing.FireVideoProcess()
+    FireVideoProcessing.FireVideoProcess(parseFile)
     return ("nothing")
 
 @app.route('/')
@@ -90,13 +98,15 @@ def home():
 
 @app.route('/Visualization')
 def Visualization():
-    return render_template('pages/visualization.html')
+    return render_template('pages/visualization.html', passFile= os.path.basename(Path(parseFile)).split('.')[0])
 
 # https://stackoverflow.com/questions/24577349/flask-download-a-file
 @app.route('/download')
 def download():
-    path = "./static/data/4cm_test.csv"
-    return send_file(path, as_attachment=True)
+    name = os.path.basename(Path(parseFile)).split('.')[0]
+    filename = name.__add__(".csv")
+    downloadfile = os.path.join("./static/data/", filename)
+    return send_file(downloadfile , as_attachment=True)
 
 @app.route('/login')
 def login():
