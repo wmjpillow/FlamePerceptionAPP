@@ -5,21 +5,23 @@ This repo includes all my thesis project files, and the final product will be us
 
 It will include both web Application and mobile Application.
 
-The web Application is developed with flask framework and the mobile application is developed with ionic framework.
+The web Application is developed with flask framework.
 
+Recordinng Video: https://vimeo.com/419167530
 --------------------------------------------------
-Current Application Interface:
-![GitHub Logo](/Flame.gif)
+Current Application Functions:
+![GitHub Logo](/FLAME1.gif)
+![GitHub Logo](/FLAME2.gif)
+![GitHub Logo](/FLAME3.gif)
+![GitHub Logo](/FLAME4.gif)
+![GitHub Logo](/FLAME5.gif)
 
 
 --------------------------------------------------
 TO DO:
-- Interaction: 
-upload the video -->Display processed video with flame bounding box + Bounding box data print on front end. 
+
 - Refine the model (pre-processing image+ train in MaskRCNN)
 - Calculate flame shape in cm instead of pixels in image. 
-- Filter the raw data of bad recording.
-- Backend system completion with Interactive data visualization.
 
 --------------------------------------------------
 Reference:
