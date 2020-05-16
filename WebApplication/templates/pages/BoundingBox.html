@@ -3,40 +3,8 @@
 {% block content %}
 
 <h1>Bounding Box of the Fire Video</h1>
-<!--upload video-->
-<!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"> </script>-->
-<!--<script type=text/javascript> $(function() { $("#mybutton").click(function (event) { $.getJSON('/Bounding', { },-->
-<!--    function(data) { }); return false; }); }); </script>-->
-
-<!--<input type = "button" id = "mybutton" value = "Click Here"/>-->
 
 <!-- display original video-->
 <video controls autoplay id="video_1" class="video-js vjs-default-skin" width="640" height="264" src="../../static/Videos/4cm_test.mp4" type='video/mp4' /> </video>
-
-<!--    <div width="640px" height="264px" style="display:inline-block">-->
-<!--        <h1>Image</h1>-->
-<!--        <img id="img" src="{{ url_for('BoundingBox') }}">-->
-<!--    </div>-->
-
-<!--    <div width="640px" height="264px" style="display:inline-block">-->
-<!--         <canvas id="canvas" width="640px" height="264px" color="white"></canvas>-->
-<!--    </div>-->
-
-<!--    <div width="640px" height="480px" style="display:inline-block">-->
-<!--        <h1>Canvas</h1>-->
-<!--        <canvas id="canvas" width="640px" height="480px" color="white"></canvas>-->
-<!--    </div>-->
-
-<!--<script >-->
-<!--    var ctx = document.getElementById("canvas").getContext('2d');-->
-<!--    var img = new Image();-->
-<!--    img.src = "{{ url_for('BoundingBox') }}";-->
-
-<!--    // need only for animated image-->
-<!--    function refreshCanvas(){-->
-<!--        ctx.drawImage(img, 0, 0);-->
-<!--    };-->
-<!--    window.setInterval("refreshCanvas()", 50);-->
-<!--</script>-->
 
 {% endblock %}

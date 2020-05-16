@@ -1,0 +1,12 @@
+{% extends 'layouts/main.html' %}
+{% block title %}upload{% endblock %}
+{% block content %}
+<!--<div class="page-header">-->
+<h1 style="color: #ABA9A9;">This is the video being processed</h1>
+<!--</div>-->
+<video controls height="100%" >
+    <source src="../../static/Videos/{{passFile}}.mp4"
+            type="video/mp4">
+</video>
+
+{% endblock %}
