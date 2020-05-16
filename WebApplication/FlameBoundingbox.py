@@ -1,6 +1,8 @@
 import cv2
 import numpy as np
 import sys
+from pathlib import Path
+import os
 # import skimage
 # import serial
 import matplotlib as mpl
@@ -16,13 +18,15 @@ from werkzeug import secure_filename
 # https://blog.miguelgrinberg.com/post/video-streaming-with-flask
 
 
-def BoundingBox():
-
-  cap1 = cv2.VideoCapture('./static/Videos/4cm_test.mp4')
+def BoundingBox(parseFile):
+  print(parseFile)
+  passFile = os.path.join("./", Path(parseFile))
+  print(passFile)
+  cap1 = cv2.VideoCapture(passFile)
   fgbg = cv2.createBackgroundSubtractorMOG2()
   # serport = serial.Serial("COM1", 115200)
 
-  sys.stdout = open("./static/data/height.txt", "w")
+  # sys.stdout = open("./static/data/height.txt", "w")
   index = 0
   while (1):
     ret, frame = cap1.read()  # reading the image
@@ -53,7 +57,7 @@ def BoundingBox():
         break
   cap1.release()
   cv2.destroyAllWindows()
-  sys.stdout.close()
+  # sys.stdout.close()
 
 if __name__ == '__main__':
     BoundingBox()
