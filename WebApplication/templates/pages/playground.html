@@ -78,9 +78,9 @@
 <!--<scripy>{{passFile}}</scripy>-->
 <script>
   // set the dimensions and margins of the graph
-  var margin = {top: 10, right: 30, bottom: 30, left: 60},
+  var margin = {top: 10, right: 30, bottom: 30, left: 40},
       width = 1260 - margin.left - margin.right,
-      height = 300 - margin.top - margin.bottom;
+      height = 250 - margin.top - margin.bottom;
 
   // append the svg object to the body of the page
   var svg = d3.select("#Area")
@@ -98,20 +98,20 @@
       .attr("transform",
             "translate(" + margin.left + "," + margin.top + ")");
 
-  var svg3 = d3.select("#Area")
-    .append("svg")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-      .attr("transform",
-            "translate(" + margin.left + "," + margin.top + ")");
-  var svg4 = d3.select("#Area")
-    .append("svg")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-      .attr("transform",
-            "translate(" + margin.left + "," + margin.top + ")");
+  // var svg3 = d3.select("#Area")
+  //   .append("svg")
+  //     .attr("width", width + margin.left + margin.right)
+  //     .attr("height", height + margin.top + margin.bottom)
+  //   .append("g")
+  //     .attr("transform",
+  //           "translate(" + margin.left + "," + margin.top + ")");
+  // var svg4 = d3.select("#Area")
+  //   .append("svg")
+  //     .attr("width", width + margin.left + margin.right)
+  //     .attr("height", height + margin.top + margin.bottom)
+  //   .append("g")
+  //     .attr("transform",
+  //           "translate(" + margin.left + "," + margin.top + ")");
 
   //Read the data
   d3.csv("../../static/data/EXAMPLE_4cm.csv",function(data) {
@@ -303,195 +303,195 @@
     }
 
   })
-    d3.csv("../../static/data/EXAMPLE_Candle.csv",function(data) {
-      console.log(data);
-      console.log(d3.extent(data, function(d) { return +d.I; }));
-      console.log(d3.extent(data, function(d) { return +d.S; }));
-      console.log(d3.extent(data, function(d) { return +d.H; }));
-      // Add X axis --> it is a date format
-      var x3 = d3.scaleLinear()
-        .domain(d3.extent(data, function(d) { return +d.I; }))
-        //       .domain([0,400])
-        .range([ 0, width ]);
-      svg3.append("g")
-        .attr("class","axis")
-        .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x3))
-        .append("text").attr("class","axis-title")
-          .attr("x",width-15)
-          .attr("y", 20)
-          .style("text-anchor","middle")
-          // .style("color","white")
-          .text("Frame");
-
-      // Add Y axis
-      var y3 = d3.scaleLinear()
-        .domain(d3.extent(data, function(d) { return +d.S; }))
-        //       .domain([0,30000])
-        .range([ height, 0 ]);
-      svg3.append("g")
-        .attr("class","axis")
-        .call(d3.axisLeft(y3))
-        .append("text")
-          .attr("class","axis-title")
-          .attr("x",-20)
-          .attr("y", 10)
-          .style("text-anchor","middle")
-          .text("Area");
-
-      // Add the line
-      svg3.append("path")
-        .datum(data)
-        .attr("fill", "none")
-        .attr("stroke", "steelblue")
-        .attr("stroke-width", 1.5)
-        .attr("d", d3.line()
-          .x(function(d) { return x3(d.I) })
-          .y(function(d) { return y3(d.S) })
-          )
-
-    var focus3 = svg3.append("g")
-        .attr("class", "focus")
-        .style("display", "none");
-
-    focus3.append("line")
-        .attr("class", "x-hover-line hover-line")
-        .attr("y1", 0)
-        .attr("y2", height);
-
-    focus3.append("line")
-        .attr("class", "y-hover-line hover-line")
-        .attr("x1", width)
-        .attr("x2", width);
-
-    focus3.append("circle")
-        .attr("r", 2.5);
-
-    focus3.append("text")
-        .attr("x", 15)
-      	.attr("dy", ".31em");
-
-    svg3.append("rect")
-        .attr("transform", "translate(" + 0 + "," + margin.top + ")")
-        .attr("class", "overlay")
-        .attr("width", width)
-        .attr("height", height)
-        .on("mouseover", function() { focus3.style("display", null); focus4.style("display", null);})
-        .on("mouseout", function() { focus3.style("display", "none"); focus4.style("display", "none");})
-        .on("mousemove", mousemove3);
-
-    var bisect3 = d3.bisector(function(d) { return d.I; }).left;
-    function mousemove3() {
-      var x0 = x3.invert(d3.mouse(this)[0]),
-          i = bisect3(data, x0, 1),
-          d0 = data[i - 1],
-          d1 = data[i],
-          d = x0 - d0.I > d1.I - x0 ? d1 : d0;
-      focus3.attr("transform", "translate(" + x3(d.I) + "," + y3(d.S) + ")");
-      focus3.select("text").text(function() { return "Area:"+ d.S+"Pixels"; });
-      focus3.select(".x-hover-line").attr("y2", height - y3(d.S));
-      focus3.select(".y-hover-line").attr("x2", width+width);
-      focus4.attr("transform", "translate(" + x4(d.I) + "," + y4(d.H) + ")");
-      focus4.select("text").text(function() { return "Height:"+d.H+"Pixels"; });
-      focus4.select(".x-hover-line").attr("y2", height - y4(d.H));
-      focus4.select(".y-hover-line").attr("x2", width+width);
-    }
-
-    // Add X axis --> it is a date format
-    //      var x = d3.scaleTime()
-      var x4 = d3.scaleLinear()
-        .domain(d3.extent(data, function(d) { return +d.I; }))
-        //       .domain([0,400])
-        .range([ 0, width ]);
-      svg4.append("g")
-        .attr("class","axis")
-        .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x4))
-        .append("text")
-          .attr("class","axis-title")
-          .attr("x",width-15)
-          .attr("y", 20)
-          .style("text-anchor","middle")
-          .text("Frame");
-
-      // Add Y axis
-      var y4 = d3.scaleLinear()
-        .domain(d3.extent(data, function(d) { return +d.H; }))
-        //       .domain([0,600])
-        .range([ height, 0 ]);
-      svg4.append("g")
-        .attr("class","axis")
-        .call(d3.axisLeft(y4))
-        .append("text")
-          .attr("class","axis-title")
-          .attr("x",-20)
-          .attr("y", 10)
-          .style("text-anchor","middle")
-          .text("Height");
-
-      // Add the line
-      svg4.append("path")
-        .datum(data)
-        .attr("fill", "none")
-        .attr("stroke", "#F5B041 ")
-        .attr("opacity", 0.8)
-        .attr("stroke-width", 1.5)
-        .attr("d", d3.line()
-          .x(function(d) { return x4(d.I) })
-          .y(function(d) { return y4(d.H) })
-          );
-
-    var focus4 = svg4.append("g")
-        .attr("class", "focus")
-        .style("display", "none");
-
-    focus4.append("line")
-        .attr("class", "x-hover-line hover-line")
-        .attr("y1", 0)
-        .attr("y2", height);
-
-    focus4.append("line")
-        .attr("class", "y-hover-line hover-line")
-        .attr("x1", width)
-        .attr("x2", width);
-
-    focus4.append("circle")
-        .attr("r", 2.5);
-
-    focus4.append("text")
-        .attr("x", 15)
-      	.attr("dy", ".31em");
-
-    svg4.append("rect")
-        .attr("transform", "translate(" + 0 + "," + margin.top + ")")
-        .attr("class", "overlay")
-        .attr("width", width)
-        .attr("height", height)
-        .on("mouseover", function() { focus4.style("display", null); focus3.style("display", null); })
-        .on("mouseout", function() { focus4.style("display", "none"); focus3.style("display", "none"); })
-        .on("mousemove", mousemove4);
-
-    var bisect4 = d3.bisector(function(d) { return d.I; }).left;
-    function mousemove4() {
-      var x0 = x4.invert(d3.mouse(this)[0]),
-          i = bisect4(data, x0, 1),
-          d0 = data[i - 1],
-          d1 = data[i],
-          d = x0 - d0.I > d1.I - x0 ? d1 : d0;
-      // console.log(x(d.I));
-      // console.log(y(d.H));
-      focus4.attr("transform", "translate(" + x4(d.I) + "," + y4(d.H) + ")");
-      focus4.select("text").text(function() { return "Height:"+d.H+"Pixels"; });
-      focus4.select(".x-hover-line").attr("y2", height - y4(d.H));
-      focus4.select(".y-hover-line").attr("x2", width+width);
-      // console.log(y(d.S));
-      focus3.attr("transform", "translate(" + x3(d.I) + "," + y3(d.S) + ")");
-      focus3.select("text").text(function() { return "Area:"+ d.S+"Pixels"; });
-      focus3.select(".x-hover-line").attr("y2", height - y3(d.S));
-      focus3.select(".y-hover-line").attr("x2", width+width);
-    }
-
-  })
+  //   d3.csv("../../static/data/EXAMPLE_Candle.csv",function(data) {
+  //     console.log(data);
+  //     console.log(d3.extent(data, function(d) { return +d.I; }));
+  //     console.log(d3.extent(data, function(d) { return +d.S; }));
+  //     console.log(d3.extent(data, function(d) { return +d.H; }));
+  //     // Add X axis --> it is a date format
+  //     var x3 = d3.scaleLinear()
+  //       .domain(d3.extent(data, function(d) { return +d.I; }))
+  //       //       .domain([0,400])
+  //       .range([ 0, width ]);
+  //     svg3.append("g")
+  //       .attr("class","axis")
+  //       .attr("transform", "translate(0," + height + ")")
+  //       .call(d3.axisBottom(x3))
+  //       .append("text").attr("class","axis-title")
+  //         .attr("x",width-15)
+  //         .attr("y", 20)
+  //         .style("text-anchor","middle")
+  //         // .style("color","white")
+  //         .text("Frame");
+  //
+  //     // Add Y axis
+  //     var y3 = d3.scaleLinear()
+  //       .domain(d3.extent(data, function(d) { return +d.S; }))
+  //       //       .domain([0,30000])
+  //       .range([ height, 0 ]);
+  //     svg3.append("g")
+  //       .attr("class","axis")
+  //       .call(d3.axisLeft(y3))
+  //       .append("text")
+  //         .attr("class","axis-title")
+  //         .attr("x",-20)
+  //         .attr("y", 10)
+  //         .style("text-anchor","middle")
+  //         .text("Area");
+  //
+  //     // Add the line
+  //     svg3.append("path")
+  //       .datum(data)
+  //       .attr("fill", "none")
+  //       .attr("stroke", "steelblue")
+  //       .attr("stroke-width", 1.5)
+  //       .attr("d", d3.line()
+  //         .x(function(d) { return x3(d.I) })
+  //         .y(function(d) { return y3(d.S) })
+  //         )
+  //
+  //   var focus3 = svg3.append("g")
+  //       .attr("class", "focus")
+  //       .style("display", "none");
+  //
+  //   focus3.append("line")
+  //       .attr("class", "x-hover-line hover-line")
+  //       .attr("y1", 0)
+  //       .attr("y2", height);
+  //
+  //   focus3.append("line")
+  //       .attr("class", "y-hover-line hover-line")
+  //       .attr("x1", width)
+  //       .attr("x2", width);
+  //
+  //   focus3.append("circle")
+  //       .attr("r", 2.5);
+  //
+  //   focus3.append("text")
+  //       .attr("x", 15)
+  //     	.attr("dy", ".31em");
+  //
+  //   svg3.append("rect")
+  //       .attr("transform", "translate(" + 0 + "," + margin.top + ")")
+  //       .attr("class", "overlay")
+  //       .attr("width", width)
+  //       .attr("height", height)
+  //       .on("mouseover", function() { focus3.style("display", null); focus4.style("display", null);})
+  //       .on("mouseout", function() { focus3.style("display", "none"); focus4.style("display", "none");})
+  //       .on("mousemove", mousemove3);
+  //
+  //   var bisect3 = d3.bisector(function(d) { return d.I; }).left;
+  //   function mousemove3() {
+  //     var x0 = x3.invert(d3.mouse(this)[0]),
+  //         i = bisect3(data, x0, 1),
+  //         d0 = data[i - 1],
+  //         d1 = data[i],
+  //         d = x0 - d0.I > d1.I - x0 ? d1 : d0;
+  //     focus3.attr("transform", "translate(" + x3(d.I) + "," + y3(d.S) + ")");
+  //     focus3.select("text").text(function() { return "Area:"+ d.S+"Pixels"; });
+  //     focus3.select(".x-hover-line").attr("y2", height - y3(d.S));
+  //     focus3.select(".y-hover-line").attr("x2", width+width);
+  //     focus4.attr("transform", "translate(" + x4(d.I) + "," + y4(d.H) + ")");
+  //     focus4.select("text").text(function() { return "Height:"+d.H+"Pixels"; });
+  //     focus4.select(".x-hover-line").attr("y2", height - y4(d.H));
+  //     focus4.select(".y-hover-line").attr("x2", width+width);
+  //   }
+  //
+  //   // Add X axis --> it is a date format
+  //   //      var x = d3.scaleTime()
+  //     var x4 = d3.scaleLinear()
+  //       .domain(d3.extent(data, function(d) { return +d.I; }))
+  //       //       .domain([0,400])
+  //       .range([ 0, width ]);
+  //     svg4.append("g")
+  //       .attr("class","axis")
+  //       .attr("transform", "translate(0," + height + ")")
+  //       .call(d3.axisBottom(x4))
+  //       .append("text")
+  //         .attr("class","axis-title")
+  //         .attr("x",width-15)
+  //         .attr("y", 20)
+  //         .style("text-anchor","middle")
+  //         .text("Frame");
+  //
+  //     // Add Y axis
+  //     var y4 = d3.scaleLinear()
+  //       .domain(d3.extent(data, function(d) { return +d.H; }))
+  //       //       .domain([0,600])
+  //       .range([ height, 0 ]);
+  //     svg4.append("g")
+  //       .attr("class","axis")
+  //       .call(d3.axisLeft(y4))
+  //       .append("text")
+  //         .attr("class","axis-title")
+  //         .attr("x",-20)
+  //         .attr("y", 10)
+  //         .style("text-anchor","middle")
+  //         .text("Height");
+  //
+  //     // Add the line
+  //     svg4.append("path")
+  //       .datum(data)
+  //       .attr("fill", "none")
+  //       .attr("stroke", "#F5B041 ")
+  //       .attr("opacity", 0.8)
+  //       .attr("stroke-width", 1.5)
+  //       .attr("d", d3.line()
+  //         .x(function(d) { return x4(d.I) })
+  //         .y(function(d) { return y4(d.H) })
+  //         );
+  //
+  //   var focus4 = svg4.append("g")
+  //       .attr("class", "focus")
+  //       .style("display", "none");
+  //
+  //   focus4.append("line")
+  //       .attr("class", "x-hover-line hover-line")
+  //       .attr("y1", 0)
+  //       .attr("y2", height);
+  //
+  //   focus4.append("line")
+  //       .attr("class", "y-hover-line hover-line")
+  //       .attr("x1", width)
+  //       .attr("x2", width);
+  //
+  //   focus4.append("circle")
+  //       .attr("r", 2.5);
+  //
+  //   focus4.append("text")
+  //       .attr("x", 15)
+  //     	.attr("dy", ".31em");
+  //
+  //   svg4.append("rect")
+  //       .attr("transform", "translate(" + 0 + "," + margin.top + ")")
+  //       .attr("class", "overlay")
+  //       .attr("width", width)
+  //       .attr("height", height)
+  //       .on("mouseover", function() { focus4.style("display", null); focus3.style("display", null); })
+  //       .on("mouseout", function() { focus4.style("display", "none"); focus3.style("display", "none"); })
+  //       .on("mousemove", mousemove4);
+  //
+  //   var bisect4 = d3.bisector(function(d) { return d.I; }).left;
+  //   function mousemove4() {
+  //     var x0 = x4.invert(d3.mouse(this)[0]),
+  //         i = bisect4(data, x0, 1),
+  //         d0 = data[i - 1],
+  //         d1 = data[i],
+  //         d = x0 - d0.I > d1.I - x0 ? d1 : d0;
+  //     // console.log(x(d.I));
+  //     // console.log(y(d.H));
+  //     focus4.attr("transform", "translate(" + x4(d.I) + "," + y4(d.H) + ")");
+  //     focus4.select("text").text(function() { return "Height:"+d.H+"Pixels"; });
+  //     focus4.select(".x-hover-line").attr("y2", height - y4(d.H));
+  //     focus4.select(".y-hover-line").attr("x2", width+width);
+  //     // console.log(y(d.S));
+  //     focus3.attr("transform", "translate(" + x3(d.I) + "," + y3(d.S) + ")");
+  //     focus3.select("text").text(function() { return "Area:"+ d.S+"Pixels"; });
+  //     focus3.select(".x-hover-line").attr("y2", height - y3(d.S));
+  //     focus3.select(".y-hover-line").attr("x2", width+width);
+  //   }
+  //
+  // })
   </script>
 
 
