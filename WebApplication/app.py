@@ -108,6 +108,10 @@ def download():
     downloadfile = os.path.join("./static/data/", filename)
     return send_file(downloadfile , as_attachment=True)
 
+@app.route('/playground')
+def playground():
+    return render_template('pages/playground.html')
+
 @app.route('/login')
 def login():
     form = LoginForm(request.form)

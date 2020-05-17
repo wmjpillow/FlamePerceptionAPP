@@ -59,6 +59,7 @@
             <li {% if request.endpoint == 'CallFlameShape' %} class="active" {% endif %}><a href="{{ url_for('CallFlameShape') }}">FlameShape</a></li>
             <li {% if request.endpoint == 'Visualization' %} class="active" {% endif %}><a href="{{ url_for('Visualization') }}">Visualization</a></li>
             <li {% if request.endpoint == 'download' %} class="active" {% endif %}><a href="{{ url_for('download') }}">Download</a></li>
+            <li {% if request.endpoint == 'playground' %} class="active" {% endif %}><a href="{{ url_for('playground') }}">Playground</a></li>
 <!--            <li class="dropdown">-->
 <!--              <a class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>-->
 <!--              <ul class="dropdown-menu">-->
@@ -73,8 +74,8 @@
 <!--            </li>-->
           </ul>
           <ul class="nav navbar-nav pull-right">
-            <li><a href="{{ url_for('register') }}">Signup</a></li>
-            <li><a href="{{ url_for('login') }}">Login</a></li>
+<!--            <li><a href="{{ url_for('register') }}">Signup</a></li>-->
+<!--            <li><a href="{{ url_for('login') }}">Login</a></li>-->
           </ul>
         </div><!--/.nav-collapse -->
       </div>
