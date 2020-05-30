@@ -1,4 +1,4 @@
-# FlameDetectionAPP For Fire Protection Department in WPI
+# FlamePerceptionAPP For Fire Protection Department in WPI
 
 
 This repo includes all my thesis project files, and the final product will be used by researchers from Fire Protection Department in WPI.
@@ -14,9 +14,9 @@ Current Application Functions:
 ![GitHub Logo](/FLAME4.gif)
 ![GitHub Logo](/FLAME5.gif)
 --------------------------------------------------
-TO DO:
+DOING:
 
-- Calculate flame shape in cm instead of pixels in image. 
+- Deploying the web APP on Azure Cloud
 
 --------------------------------------------------
 Reference:
