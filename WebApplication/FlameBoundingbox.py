@@ -8,7 +8,7 @@ import os
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
-from werkzeug import secure_filename
+# from werkzeug import secure_filename
 
 # get_ipython().magic(u'matplotlib inline')
 # REFERENCE: https://github.com/benjamincastillo2020/FireDetectionCode
