@@ -5,6 +5,8 @@ This repo includes all my thesis project files, and the final product will be us
 
 The web Application is developed with flask framework.
 
+I deployed the Flask APP with Docker on Azure to get it tested.
+
 Recording Video: https://vimeo.com/419638456
 --------------------------------------------------
 Current Application Functions:
@@ -25,5 +27,7 @@ Reference:
 - https://medium.com/@vijendra1125/custom-mask-rcnn-using-tensorflow-object-detection-api-101149ce0765
 
 - Flask Template:  https://github.com/realpython/flask-boilerplate
+
+- Deploying a Flask app with Docker on Azure:  https://medium.com/@alexjsanchez/creating-and-deploying-a-flask-app-with-docker-on-azure-in-5-easy-9f7aa7a12145
 
 
