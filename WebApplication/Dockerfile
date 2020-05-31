@@ -11,7 +11,6 @@ RUN  pip install -r requirements.txt
 
 EXPOSE 70
 
-ENV NAME World
 
 CMD ["python", "app.py"]
 
