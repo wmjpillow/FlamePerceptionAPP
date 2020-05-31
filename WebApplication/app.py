@@ -10,7 +10,7 @@ from logging import Formatter, FileHandler
 from forms import *
 import os
 import FlameBoundingbox
-from werkzeug import secure_filename
+from werkzeug.utils import secure_filename
 import FireVideoProcessing
 import FlameShape
 from pathlib import Path
@@ -157,14 +157,13 @@ if not app.debug:
 #----------------------------------------------------------------------------#
 
 # Default port:
-if __name__ == '__main__':
-    # FlameBoundingbox.BoundingBox()
-    app.run()
+# if __name__ == '__main__':
+#     # FlameBoundingbox.BoundingBox()
+#     app.run()
 
 
 # Or specify port manually:
-'''
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
-'''
+    app.run(host='0.0.0.0', port=70)
+

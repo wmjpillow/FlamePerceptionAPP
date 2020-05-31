@@ -4,10 +4,17 @@ WORKDIR /WebApplication
 
 ADD . /WebApplication
 
-RUN  pip3 install -r requirements.txt
+RUN pip install --upgrade pip
 
-EXPOSE 80
+RUN  pip install -r requirements.txt
+
+
+EXPOSE 70
 
 ENV NAME World
 
 CMD ["python", "app.py"]
+
+
+
+
