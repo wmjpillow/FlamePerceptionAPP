@@ -1,10 +1,10 @@
-FROM Python 3.7.3
+FROM python:3.7.3
 
 WORKDIR /WebApplication
 
 ADD . /WebApplication
 
-RUN pip install --trusted-host pypi.python.org -r requirements.txt
+RUN  pip3 install -r requirements.txt
 
 EXPOSE 80
 
