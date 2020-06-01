@@ -41,3 +41,6 @@ Reference:
 - https://sladkovm.github.io/webdev/2017/10/16/Deploying-Plotly-Dash-in-a-Docker-Container-on-Digitital-Ocean.html
 
 
+docker-machine create --driver digitalocean --digitalocean-access-token 888d26422b3459a97fe46830cdfdf59161ad2557a5928c080f1e31d1e3887b49 docker-sandbox
+
+
