@@ -7,6 +7,8 @@ The web Application is developed with flask framework.
 
 I deployed the Flask APP with Docker on Azure to get it tested.
 
+http://104.248.9.205:4000/
+
 Recording Video: https://vimeo.com/419638456
 --------------------------------------------------
 Current Application Functions:
@@ -29,5 +31,11 @@ Reference:
 - Flask Template:  https://github.com/realpython/flask-boilerplate
 
 - Deploying a Flask app with Docker on Azure:  https://medium.com/@alexjsanchez/creating-and-deploying-a-flask-app-with-docker-on-azure-in-5-easy-9f7aa7a12145
+
+- https://blog.machinebox.io/deploy-machine-box-in-digital-ocean-385265fbeafd
+
+- https://docs.docker.com/machine/examples/ocean/#step-5-use-machine-to-remove-the-droplet
+
+- https://sladkovm.github.io/webdev/2017/10/16/Deploying-Plotly-Dash-in-a-Docker-Container-on-Digitital-Ocean.html
 
 
