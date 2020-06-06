@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c5260bce-8f4a-4690-8628-ee3b32705958" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/city.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,8 +13,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -250,6 +250,7 @@
       <workItem from="1590782270010" duration="2322000" />
       <workItem from="1590870995941" duration="2796000" />
       <workItem from="1590941637596" duration="576000" />
+      <workItem from="1591397925897" duration="155000" />
     </task>
     <servers />
   </component>
@@ -261,6 +262,10 @@
       <screen x="0" y="23" width="1680" height="941" />
     </state>
     <state x="678" y="169" key="#Illuminated_Cloud/0.23.1680.941@0.23.1680.941" timestamp="1589128699232" />
+    <state x="480" y="157" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591397972653">
+      <screen x="0" y="23" width="1680" height="954" />
+    </state>
+    <state x="480" y="157" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.954@0.23.1680.954" timestamp="1591397972653" />
     <state width="1270" height="10" key="GridCell.Tab.0.bottom" timestamp="1590437138979">
       <screen x="0" y="23" width="1680" height="954" />
     </state>
@@ -325,6 +330,10 @@
     <state x="657" y="367" key="com.intellij.ide.util.TipDialog/0.23.1680.952@0.23.1680.952" timestamp="1590870996562" />
     <state x="657" y="368" key="com.intellij.ide.util.TipDialog/0.23.1680.954@0.23.1680.954" timestamp="1589675520616" />
     <state x="657" y="368" key="com.intellij.ide.util.TipDialog/0.23.1680.958@0.23.1680.958" timestamp="1586737351661" />
+    <state x="681" y="230" width="670" height="676" key="search.everywhere.popup" timestamp="1591398004974">
+      <screen x="0" y="23" width="1680" height="954" />
+    </state>
+    <state x="681" y="230" width="670" height="676" key="search.everywhere.popup/0.23.1680.954@0.23.1680.954" timestamp="1591398004974" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/FlameDetectionAPP$calculateAndSave.coverage" NAME="calculateAndSave Coverage Results" MODIFIED="1579294284269" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VideoProecessing" />

@@ -46,6 +46,8 @@ docker-machine create --driver digitalocean --digitalocean-access-token 888d2642
 --------------------------------------------------
 Clean/ADD:
 
+$ eval $(docker-machine env docker-sandbox)
+
 $ docker container ls
 
 $ docker rm -f flame
