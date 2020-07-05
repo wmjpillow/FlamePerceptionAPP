@@ -20,11 +20,7 @@ Current Application Functions:
 ![GitHub Logo](/FLAME4.gif)
 ![GitHub Logo](/FLAME5.gif)
 --------------------------------------------------
-DOING:
 
-- Deploying the web APP on Azure Cloud
-
---------------------------------------------------
 Reference:
 - Model Reference: https://engineering.matterport.com/splash-of-color-instance-segmentation-with-mask-r-cnn-and-tensorflow-7c761e238b46
 
