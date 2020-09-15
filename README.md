@@ -12,6 +12,7 @@ APP Website:  http://104.248.9.205:4000/
 Download some fire videos for testing:  https://drive.google.com/drive/folders/12aAkuB4spQfFkrKQsKBUR0F7YM7u2yoC?usp=sharing
 
 Recording Video: https://vimeo.com/419638456
+
 --------------------------------------------------
 Pipeline:
 ![GitHub Logo](/Infrastructure.png)
