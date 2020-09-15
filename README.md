@@ -3,9 +3,7 @@
 
 This repo includes all my thesis project files, and the final product will be used by researchers from Fire Protection Department in WPI.
 
-The web Application is developed with flask framework.
-
-I deployed the Flask APP with Docker on Azure to get it tested.
+The web Application is developed with flask framework. I deployed the Flask APP with Docker on Azure to get it tested.
 
 APP Website:  http://104.248.9.205:4000/
 
@@ -16,6 +14,9 @@ Recording Video: https://vimeo.com/419638456
 --------------------------------------------------
 Pipeline:
 ![GitHub Logo](/Infrastructure.png)
+--------------------------------------------------
+Workflow:
+![GitHub Logo](/UserFlow.png)
 --------------------------------------------------
 Current Application Functions:
 ![GitHub Logo](/FLAME1.gif)
