@@ -13,6 +13,9 @@ Download some fire videos for testing:  https://drive.google.com/drive/folders/1
 
 Recording Video: https://vimeo.com/419638456
 --------------------------------------------------
+Pipeline:
+![GitHub Logo](/Infrastructure.png)
+--------------------------------------------------
 Current Application Functions:
 ![GitHub Logo](/FLAME1.gif)
 ![GitHub Logo](/FLAME2.gif)
