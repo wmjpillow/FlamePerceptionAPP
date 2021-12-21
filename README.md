@@ -1,7 +1,7 @@
 # FlamePerceptionAPP For Fire Protection Department in WPI
 
 
-This repo includes all my thesis project files, and the final product will be used by researchers from Fire Protection Department in WPI.
+This repo includes all my thesis project files, and the final product will be used by researchers from Fire Protection Department.
 
 The web Application is developed with flask framework. I deployed the Flask APP with Docker on Azure to get it tested.
 
